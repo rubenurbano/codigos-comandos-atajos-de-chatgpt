@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Códigos, Comandos y Atajos de ChatGPT — Edición Agencia Premium</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            400: '#818cf8',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            900: '#1e1b4b',
+                        },
+                        cyber: {
+                            cyan: '#06b6d4',
+                            emerald: '#10b981',
+                            violet: '#8b5cf6',
+                            dark: '#060913',
+                            card: '#0f1526',
+                            border: '#1e293b'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Optimizaciones para Samsung Galaxy A02s (720x1600px, ratio 20:9, hardware GPU eficiente) */
+        * {
+            -webkit-tap-highlight-color: transparent;
+            box-sizing: border-box;
+        }
+        html, body {
+            background-color: #060913;
+            color: #f1f5f9;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Ocultar barra de scroll horizontal en las píldoras de pestañas */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Animaciones del SVG Maestro */
+        @keyframes rotateSlow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes rotateReverse {
+            0% { transform: rotate(360deg); }
+            100% { transform: rotate(0deg); }
+        }
+        @keyframes pulseCore {
+            0%, 100% { transform: scale(0.94); opacity: 0.85; }
+            50% { transform: scale(1.06); opacity: 1; }
+        }
+        @keyframes dashFlow {
+            to { stroke-dashoffset: -120; }
+        }
+        @keyframes floatNode1 {
+            0%, 100% { transform: translate(0px, 0px); }
+            50% { transform: translate(6px, -10px); }
+        }
+        @keyframes floatNode2 {
+            0%, 100% { transform: translate(0px, 0px); }
+            50% { transform: translate(-8px, 8px); }
+        }
+        @keyframes scanBeam {
+            0%, 100% { transform: translateY(-75px); opacity: 0.15; }
+            50% { transform: translateY(75px); opacity: 0.75; }
+        }
+
+        .svg-orbit-1 {
+            transform-origin: 200px 200px;
+            animation: rotateSlow 22s linear infinite;
+        }
+        .svg-orbit-2 {
+            transform-origin: 200px 200px;
+            animation: rotateReverse 16s linear infinite;
+        }
+        .svg-orbit-3 {
+            transform-origin: 200px 200px;
+            animation: rotateSlow 32s linear infinite;
+        }
+        .svg-core {
+            transform-origin: 200px 200px;
+            animation: pulseCore 3.2s ease-in-out infinite;
+        }
+        .svg-stream {
+            stroke-dasharray: 8 12;
+            animation: dashFlow 3.5s linear infinite;
+        }
+        .svg-node-a {
+            animation: floatNode1 4s ease-in-out infinite;
+        }
+        .svg-node-b {
+            animation: floatNode2 5s ease-in-out infinite;
+        }
+        .svg-scanner {
+            animation: scanBeam 4.5s ease-in-out infinite;
+        }
+
+        /* Estilo de Botones Flotantes Arrastrables */
+        .draggable-fab {
+            position: fixed;
+            z-index: 60;
+            touch-action: none;
+            user-select: none;
+            -webkit-user-select: none;
+            cursor: grab;
+            transition: box-shadow 0.2s ease, transform 0.1s ease;
+        }
+        .draggable-fab:active {
+            cursor: grabbing;
+            transform: scale(1.08);
+        }
+
+        /* Estética de Agencia Premium */
+        .agency-card {
+            background: linear-gradient(145deg, rgba(15, 21, 38, 0.92), rgba(10, 14, 26, 0.96));
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
+        }
+        .agency-badge {
+            background: rgba(99, 102, 241, 0.14);
+            border: 1px solid rgba(99, 102, 241, 0.35);
+            color: #a5b4fc;
+        }
+        .code-pill {
+            font-family: 'JetBrains Mono', monospace;
+            background: rgba(6, 182, 212, 0.12);
+            border: 1px solid rgba(6, 182, 212, 0.35);
+            color: #67e8f9;
+            padding: 0.15rem 0.45rem;
+            border-radius: 0.375rem;
+            font-size: 0.82rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+        .tab-transition {
+            animation: fadeInTab 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        @keyframes fadeInTab {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white">
+
+    <!-- PLANTILLA DEL SVG HIPER-ANIMADO (IDÉNTICO PARA INICIO Y CRÉDITOS) -->
+    <template id="hyper-svg-template">
+        <div class="relative w-full max-w-[320px] sm:max-w-[380px] mx-auto my-2 flex items-center justify-center">
+            <!-- Resplandor ambiental de fondo -->
+            <div class="absolute inset-4 rounded-full bg-gradient-to-tr from-indigo-600/20 via-cyan-500/15 to-emerald-500/20 blur-2xl pointer-events-none"></div>
+            
+            <svg viewBox="0 0 400 400" class="w-full h-auto drop-shadow-[0_0_25px_rgba(6,182,212,0.3)]" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Núcleo de Inteligencia Artificial Animado">
+                <defs>
+                    <linearGradient id="cyberGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#06b6d4" />
+                        <stop offset="50%" stop-color="#6366f1" />
+                        <stop offset="100%" stop-color="#10b981" />
+                    </linearGradient>
+                    <linearGradient id="cyberGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#8b5cf6" />
+                        <stop offset="50%" stop-color="#ec4899" />
+                        <stop offset="100%" stop-color="#06b6d4" />
+                    </linearGradient>
+                    <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.9" />
+                        <stop offset="45%" stop-color="#6366f1" stop-opacity="0.45" />
+                        <stop offset="100%" stop-color="#060913" stop-opacity="0" />
+                    </radialGradient>
+                </defs>
+
+                <!-- Fondo del radar -->
+                <circle cx="200" cy="200" r="175" fill="#090d1a" stroke="#1e293b" stroke-width="1.5" />
+                <circle cx="200" cy="200" r="145" fill="none" stroke="#1e293b" stroke-width="1" stroke-dasharray="3 6" />
+                <circle cx="200" cy="200" r="110" fill="none" stroke="#1e293b" stroke-width="1" />
+
+                <!-- Ejes de coordenadas -->
+                <line x1="25" y1="200" x2="375" y2="200" stroke="#1e293b" stroke-width="1" />
+                <line x1="200" y1="25" x2="200" y2="375" stroke="#1e293b" stroke-width="1" />
+
+                <!-- Anillo exterior rotatorio 3 -->
+                <g class="svg-orbit-3">
+                    <circle cx="200" cy="200" r="165" fill="none" stroke="url(#cyberGrad1)" stroke-width="2" stroke-dasharray="28 14 6 14" opacity="0.7" />
+                    <circle cx="200" cy="35" r="5" fill="#10b981" />
+                    <circle cx="200" cy="365" r="5" fill="#06b6d4" />
+                    <circle cx="35" cy="200" r="5" fill="#8b5cf6" />
+                    <circle cx="365" cy="200" r="5" fill="#ec4899" />
+                </g>
+
+                <!-- Anillo geométrico rotatorio 1 -->
+                <g class="svg-orbit-1">
+                    <polygon points="200,55 325,127 325,273 200,345 75,273 75,127" fill="none" stroke="url(#cyberGrad1)" stroke-width="2" stroke-dasharray="10 6" opacity="0.85" />
+                    <circle cx="200" cy="55" r="6" fill="#22d3ee" />
+                    <circle cx="325" cy="273" r="6" fill="#a855f7" />
+                    <circle cx="75" cy="273" r="6" fill="#10b981" />
+                </g>
+
+                <!-- Anillo inverso rotatorio 2 -->
+                <g class="svg-orbit-2">
+                    <polygon points="200,345 75,127 325,127" fill="none" stroke="url(#cyberGrad2)" stroke-width="1.8" opacity="0.65" />
+                    <polygon points="200,55 75,273 325,273" fill="none" stroke="url(#cyberGrad1)" stroke-width="1.8" opacity="0.65" />
+                    <circle cx="200" cy="200" r="95" fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-dasharray="40 80" />
+                </g>
+
+                <!-- Flujos de datos neuronales -->
+                <path d="M 85 130 Q 200 60 315 130" fill="none" stroke="#22d3ee" stroke-width="2" class="svg-stream" />
+                <path d="M 85 270 Q 200 340 315 270" fill="none" stroke="#a855f7" stroke-width="2" class="svg-stream" />
+                <path d="M 60 200 C 130 110, 270 290, 340 200" fill="none" stroke="#10b981" stroke-width="2" class="svg-stream" />
+
+                <!-- Nodos satelitales flotantes -->
+                <g class="svg-node-a">
+                    <circle cx="115" cy="115" r="8" fill="#06b6d4" />
+                    <circle cx="115" cy="115" r="14" fill="none" stroke="#06b6d4" stroke-width="1.5" opacity="0.5" />
+                    <circle cx="285" cy="285" r="7" fill="#10b981" />
+                </g>
+                <g class="svg-node-b">
+                    <circle cx="285" cy="115" r="8" fill="#8b5cf6" />
+                    <circle cx="285" cy="115" r="14" fill="none" stroke="#8b5cf6" stroke-width="1.5" opacity="0.5" />
+                    <circle cx="115" cy="285" r="7" fill="#ec4899" />
+                </g>
+
+                <!-- Núcleo Central Pulsante -->
+                <g class="svg-core">
+                    <circle cx="200" cy="200" r="70" fill="url(#coreGlow)" />
+                    <polygon points="200,142 250,171 250,229 200,258 150,229 150,171" fill="#0f172a" stroke="url(#cyberGrad1)" stroke-width="3" />
+                    <circle cx="200" cy="200" r="24" fill="url(#cyberGrad2)" />
+                    <!-- Símbolo Slash / Prompt en el corazón del SVG -->
+                    <text x="200" y="208" text-anchor="middle" fill="#ffffff" font-family="JetBrains Mono, monospace" font-weight="700" font-size="22">/AI</text>
+                </g>
+
+                <!-- Haz de escaneo láser -->
+                <g class="svg-scanner">
+                    <line x1="70" y1="200" x2="330" y2="200" stroke="#22d3ee" stroke-width="2.5" />
+                    <rect x="70" y="196" width="260" height="8" fill="#22d3ee" opacity="0.2" />
+                </g>
+            </svg>
+        </div>
+    </template>
+
+    <!-- BARRA SUPERIOR FIJA CON MENÚ SÁNDWICH -->
+    <header class="sticky top-0 z-40 bg-[#060913]/90 backdrop-blur-md border-b border-slate-800/80">
+        <div class="max-w-5xl mx-auto px-3 sm:px-6 h-16 flex items-center justify-between gap-2">
+            <!-- Botón Menú Sándwich (Índice) -->
+            <button id="open-menu-btn" onclick="toggleDrawer(true)" class="flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl bg-indigo-600/20 hover:bg-indigo-600/30 active:scale-95 border border-indigo-500/40 text-indigo-200 font-semibold text-sm transition shadow-lg shadow-indigo-950/50" aria-label="Abrir Índice de Pestañas">
+                <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h12"></path>
+                </svg>
+                <span>ÍNDICE</span>
+            </button>
+
+            <!-- Título central compacto para móvil -->
+            <div class="flex flex-col items-center text-center overflow-hidden">
+                <span class="text-[10px] font-mono uppercase tracking-widest text-cyan-400 font-semibold">Guía Verificada 2026</span>
+                <h1 id="header-active-title" class="text-xs sm:text-sm font-bold text-white truncate max-w-[165px] sm:max-w-xs">
+                    1. INICIO
+                </h1>
+            </div>
+
+            <!-- Indicador de progreso de pestañas -->
+            <div class="flex items-center gap-1.5 bg-slate-900/90 border border-slate-700/70 px-3 py-1.5 rounded-xl">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span id="tab-counter-badge" class="font-mono text-xs font-bold text-slate-200">1/9</span>
+            </div>
+        </div>
+
+        <!-- Barra de Pestañas Deslizable Horizontal -->
+        <div class="max-w-5xl mx-auto px-2 py-2 bg-[#090d1c]/90 border-t border-slate-800/60 overflow-x-auto no-scrollbar">
+            <nav id="top-tabs-bar" class="flex items-center gap-1.5 min-w-max px-1" aria-label="Pestañas del tutorial">
+                <!-- Generado dinámicamente por JS -->
+            </nav>
+        </div>
+    </header>
+
+    <!-- DRAWER / MENÚ SÁNDWICH MODAL (ÍNDICE COMPLETO) -->
+    <div id="drawer-backdrop" onclick="toggleDrawer(false)" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm hidden opacity-0 transition-opacity duration-200"></div>
+    
+    <aside id="drawer-panel" class="fixed top-0 left-0 bottom-0 z-50 w-[86vw] max-w-[340px] bg-[#0b1021] border-r border-indigo-500/30 shadow-2xl transform -translate-x-full transition-transform duration-300 flex flex-col">
+        <!-- Cabecera del Índice -->
+        <div class="p-4 border-b border-slate-800 flex items-center justify-between bg-gradient-to-r from-indigo-950/60 to-slate-900">
+            <div>
+                <span class="text-[11px] font-mono uppercase tracking-wider text-cyan-400 block">Navegación Rápida</span>
+                <h2 class="text-base font-extrabold text-white">Índice del Tutorial</h2>
+            </div>
+            <button onclick="toggleDrawer(false)" class="p-2 rounded-lg bg-slate-800/80 text-slate-300 hover:text-white active:scale-95 border border-slate-700" aria-label="Cerrar menú">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Lista de todas las pestañas -->
+        <div id="drawer-links-container" class="flex-1 overflow-y-auto p-3 space-y-2">
+            <!-- Generado dinámicamente por JS -->
+        </div>
+
+        <!-- Pie del menú sándwich -->
+        <div class="p-3.5 border-t border-slate-800 bg-[#070a14] text-xs text-slate-400 flex items-center justify-between">
+            <span>Autor: <strong class="text-slate-200">Rubén Sbarsky</strong></span>
+            <span class="font-mono text-cyan-400">04/11/2026</span>
+        </div>
+    </aside>
+
+    <!-- CONTENEDOR PRINCIPAL DE CONTENIDO DE PESTAÑAS -->
+    <main class="flex-1 max-w-4xl w-full mx-auto px-3.5 sm:px-6 pt-5 pb-28">
+
+        <!-- ==========================================
+             PESTAÑA 0: INICIO Y CONCLUSIÓN INICIAL
+             ========================================== -->
+        <section id="tab-0" class="tab-panel tab-transition space-y-6">
+            <!-- Hero Card Agencia Premium -->
+            <div class="agency-card rounded-3xl p-5 sm:p-8 relative overflow-hidden">
+                <div class="flex flex-wrap items-center gap-2 mb-3">
+                    <span class="agency-badge text-xs font-mono font-semibold px-3 py-1 rounded-full">EDICIÓN AGENCIA PREMIUM</span>
+                    <span class="bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-xs font-mono px-3 py-1 rounded-full">Revisión: 4 de noviembre de 2026</span>
+                </div>
+
+                <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
+                    Códigos, comandos y atajos de <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-indigo-400 to-emerald-400">ChatGPT</span>
+                </h2>
+                <p class="mt-2 text-sm sm:text-base text-indigo-200/90 font-medium">
+                    Lista revisada, ampliada y clasificada
+                </p>
+
+                <!-- Contenedor donde se inyecta el SVG hiper-animado #1 -->
+                <div id="svg-mount-inicio" class="my-4"></div>
+
+                <div class="bg-slate-900/90 border border-indigo-500/30 rounded-2xl p-4 mt-4">
+                    <h3 class="text-xs font-mono uppercase tracking-wider text-cyan-400 font-bold mb-1">Objetivo del documento</h3>
+                    <p class="text-sm sm:text-base text-slate-200 leading-relaxed">
+                        Distinguir los comandos reales de ChatGPT de las palabras descriptivas para generar imágenes y de las abreviaturas de prompting que circulan por Internet.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Sección 1: Conclusión -->
+            <div class="agency-card rounded-3xl p-5 sm:p-7 space-y-4">
+                <div class="flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-xl bg-indigo-600/30 border border-indigo-400/40 flex items-center justify-center font-mono font-bold text-cyan-300">1</span>
+                    <h3 class="text-lg sm:text-xl font-bold text-white">Conclusión: no existe una lista universal de «códigos secretos»</h3>
+                </div>
+
+                <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                    La expresión <em class="text-indigo-300 font-medium">códigos secretos de ChatGPT</em> es engañosa. En las listas virales se mezclan tres mecanismos distintos:
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5 pt-2">
+                    <div class="bg-slate-900/80 border border-cyan-500/30 rounded-2xl p-4">
+                        <div class="text-xs font-mono text-cyan-400 font-bold mb-1">MECANISMO 01</div>
+                        <h4 class="font-bold text-white text-base mb-1.5">1. Comandos de interfaz</h4>
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                            Órdenes reconocidas por la propia aplicación, normalmente seleccionadas desde un menú. Algunos empiezan por <span class="code-pill">/</span>.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-900/80 border border-indigo-500/30 rounded-2xl p-4">
+                        <div class="text-xs font-mono text-indigo-400 font-bold mb-1">MECANISMO 02</div>
+                        <h4 class="font-bold text-white text-base mb-1.5">2. Palabras clave descriptivas</h4>
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                            Términos normales —por ejemplo, <span class="code-pill">blueprint</span>, <span class="code-pill">cinematic</span> o <span class="code-pill">top-down</span>— que ayudan a describir una imagen. No desbloquean funciones ocultas.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-900/80 border border-emerald-500/30 rounded-2xl p-4">
+                        <div class="text-xs font-mono text-emerald-400 font-bold mb-1">MECANISMO 03</div>
+                        <h4 class="font-bold text-white text-base mb-1.5">3. Abreviaturas o etiquetas de prompting</h4>
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                            Convenciones inventadas por usuarios —por ejemplo, <span class="code-pill">CRIT</span> o <span class="code-pill">PLAN</span>— que pueden servir como recordatorios, pero no tienen un significado universal ni activan un modo especial.
+                        </p>
+                    </div>
+                </div>
+
+                <p class="text-sm sm:text-base text-slate-300 leading-relaxed pt-2">
+                    La documentación de OpenAI recomienda describir con claridad el objetivo, el sujeto, la composición, el estilo y las restricciones. No recomienda depender de palabras mágicas. En edición, conviene especificar qué debe cambiar y qué debe permanecer intacto.
+                </p>
+
+                <blockquote class="border-l-4 border-cyan-400 bg-cyan-950/30 rounded-r-2xl p-4 text-sm sm:text-base text-cyan-100">
+                    <strong class="text-cyan-300 block mb-1">Regla práctica:</strong>
+                    Si una palabra funciona, normalmente funciona por su significado descriptivo, no porque sea un código secreto. Añadir <span class="code-pill">/</span> delante no la convierte automáticamente en un comando.
+                </blockquote>
+            </div>
+
+            <!-- Navegación Fija al Final de la Pestaña -->
+            <div class="tab-footer-nav pt-4"></div>
+        </section>
+
+        <!-- ==========================================
+             PESTAÑA 1: PARTE I — COMANDOS REALES Y ATAJOS
+             ========================================== -->
+        <section id="tab-1" class="tab-panel tab-transition hidden space-y-6">
+            <div class="agency-card rounded-3xl p-5 sm:p-7 space-y-4">
+                <span class="agency-badge text-xs font-mono font-semibold px-3 py-1 rounded-full">PARTE I — COMANDOS REALES DE LA APLICACIÓN</span>
+                <h2 class="text-xl sm:text-2xl font-extrabold text-white">
+                    2. Comandos con <span class="code-pill">/</span> documentados para la aplicación de escritorio
+                </h2>
+                <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                    OpenAI mantiene una referencia de comandos para la aplicación de escritorio. La lista disponible depende del entorno, de las funciones habilitadas y de la versión. Se abre escribiendo <span class="code-pill">/</span> en el cuadro de conversación y seleccionando una opción del menú.
+                </p>
+
+                <!-- Buscador rápido interactivo para filtrar los 25 comandos en móvil -->
+                <div class="relative pt-1">
+                    <input type="text" id="slash-filter-input" oninput="filterSlashCommands(this.value)" placeholder="Filtrar comando (ej. /plan, /model, /mcp)..." class="w-full bg-slate-950/90 border border-slate-700 focus:border-cyan-400 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-400 outline-none transition">
+                </div>
+
+                <!-- Tabla Responsiva de los 25 Comandos -->
+                <div class="overflow-x-auto rounded-2xl border border-slate-800">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-slate-900/95 border-b border-slate-800 text-xs font-mono uppercase text-cyan-400">
+                                <th class="py-3 px-3.5">Comando</th>
+                                <th class="py-3 px-3.5">Función documentada</th>
+                                <th class="py-3 px-3.5">Observaciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="slash-commands-tbody" class="divide-y divide-slate-800/70 text-xs sm:text-sm">
+                            <tr class="hover:bg-slate-900/50"><td class="py-3 px-3.5 font-mono font-bold text-cyan-300">/plan</td><td class="py-3 px-3.5 text-slate-200">Activa el modo de planificación para tareas de varios pasos.</td><td class="py-3 px-3.5 text-slate-400">Útil antes de definir un objetivo complejo.</td></tr>
+                            <tr class="hover:bg-slate-900/50"><td class="py-3 px-3.5 font-mono font-bold text-cyan-300">/goal</td><td class="py-3 px-3.5 text-slate-200">Establece un objetivo persistente para que ChatGPT trabaje hacia él.</td><td class="py-3 px-3.5 text-slate-400">La documentación recomienda definirlo después de <code class="text-indigo-300">/plan</code>.</td></tr>
+                            <tr class="hover:bg-slate-900/50"><td class="py-3 px-3.5 font-mono font-bold text-cyan-300">/model</td><td class="py-3 px-3.5 text-slate-200">Permite elegir el modelo para la conversación.</td><td class="py-3 px-3.5 text-slate-400">Depende de los modelos disponibles en la cuenta.</td></tr>
+                            <tr class="hover:bg-slate-900/50"><td class="py-3 px-3.5 font-mono font-bold text-cyan-300">/reasoning</td><td class="py-3 px-3.5 text-slate-200">Permite elegir el nivel de razonamiento.</td><td class="py-3 px-3.5 text-slate-400">Las opciones dependen del plan y del entorno.</td></tr>
+                            <tr class="hover:bg-slate-900/50"><td class="py-3 px-3.5 font-mono font-bold text-cyan-300">/fast</td><td class="py-3 px-3.5 text-slate-200">Activa o desactiva un nivel de servicio rápido cuando está disponible.</td><td class="py-3 px-3.5 text-slate-400">No debe confundirse con elegir un modelo distinto.</td></tr>
+                            <tr class="hover:bg-slate-900/50"><td class="py-3 px-3.5 font-mono font-bold text-cyan-300">/compact</td><td class="py-3 px-3.5 text-slate-200">Compacta el contexto de la conversación.</td><td class="py-3 px-3.5 text-slate-400">Principalmente útil en sesiones largas de trabajo.</td></tr>
+                            <tr class="hover:bg-slate-900/50"><td class="py-3 px-3.5 font-mono font-bold text-cyan-300">/feedback</td><td class="py-3 px-3.5 text-slate-200">Abre el diálogo para enviar comentarios.</td><td class="py-3 px-3.5 text-slate-400">Puede permitir adjuntar registros.</td></tr>
+                            <tr class="hover:bg-slate-900/50"><td class="py-3 px-3.5 font-mono font-bold text-cyan-300">/status</td><td class="py-3 px-3.5 text-slate-200">Muestra información de estado, como ID de chat, contexto y límites.</td><td class="py-3 px-3.5 text-slate-400">Disponibilidad según entorno.</td></tr>
+                            <tr class="hover:bg-slate-900/50"><td class="py-3 px-3.5 font-mono font-bold text-cyan-300">/usage</td><td class="py-3 px-3.5 text-slate-200">Abre información de uso y facturación cuando está disponible.</td><td class="py-3 px-3.5 text-slate-400">Requiere las condiciones de acceso correspondientes.</td></tr>
+                            <tr class="hover:bg-slate-900/50"><td class="py-3 px-3.5 font-mono font-bold text-cyan-300">/project</td><td class="py-3 px-3.5 text-slate-200">Permite elegir un proyecto para una conversación nueva.</td><td class="py-3 px-3.5 text-slate-400">Depende de que Proyectos esté disponible.</td></tr>
+                            <tr class="hover:bg-slate-900/50"><td class="py-3 px-3.5 font-mono font-bold text-cyan-300">/chat</td><td class="py-3 px-3.5 text-slate-200">Permite elegir un chat sin proyecto antes de empezar.</td><td class="py-3 px-3.5 text-slate-400">Comando de la aplicación de escritorio.</td></tr>
+                            <tr class="hover:bg-slate-900/50"><td class="py-3 px-3.5 font-mono font-bold text-cyan-300">/archive</td><td class="py-3 px-3.5 text-slate-200">Archiva la conversación actual.</td><td class="py-3 px-3.5 text-slate-400">Acción de interfaz.</td></tr>
+                            <tr class="hover:bg-slate-900/50"><td class="py-3 px-3.5 font-mono font-bold text-cyan-300">/rename</td><td class="py-3 px-3.5 text-slate-200">Cambia el nombre de la conversación.</td><td class="py-3 px-3.5 text-slate-400">Acción de interfaz.</td></tr>
+                            <tr class="hover:bg-slate-900/50"><td class="py-3 px-3.5 font-mono font-bold text-cyan-300">/pin</td><td class="py-3 px-3.5 text-slate-200">Fija o desfija la conversación cuando está disponible.</td><td class="py-3 px-3.5 text-slate-400">Disponibilidad variable.</td></tr>
+                            <tr class="hover:bg-slate-900/50"><td class="py-3 px-3.5 font-mono font-bold text-cyan-300">/new</td><td class="py-3 px-3.5 text-slate-200">Inicia una conversación en blanco en el mismo espacio de trabajo local.</td><td class="py-3 px-3.5 text-slate-400">No confundir con una orden universal para cualquier ChatGPT móvil/web.</td></tr>
+                            <tr class="hover:bg-slate-900/50"><td class="py-3 px-3.5 font-mono font-bold text-cyan-300">/side</td><td class="py-3 px-3.5 text-slate-200">Abre una conversación lateral temporal.</td><td class="py-3 px-3.5 text-slate-400">Depende del entorno.</td></tr>
+                            <tr class="hover:bg-slate-900/50"><td class="py-3 px-3.5 font-mono font-bold text-cyan-300">/cloud</td><td class="py-3 px-3.5 text-slate-200">Ejecuta el chat en la nube cuando la ejecución en la nube está disponible.</td><td class="py-3 px-3.5 text-slate-400">Entorno compatible requerido.</td></tr>
+                            <tr class="hover:bg-slate-900/50"><td class="py-3 px-3.5 font-mono font-bold text-cyan-300">/cloud-environment</td><td class="py-3 px-3.5 text-slate-200">Permite elegir el entorno de nube.</td><td class="py-3 px-3.5 text-slate-400">No es una función general de todos los chats.</td></tr>
+                            <tr class="hover:bg-slate-900/50"><td class="py-3 px-3.5 font-mono font-bold text-cyan-300">/local</td><td class="py-3 px-3.5 text-slate-200">Ejecuta el chat en el proyecto local seleccionado.</td><td class="py-3 px-3.5 text-slate-400">Entorno compatible requerido.</td></tr>
+                            <tr class="hover:bg-slate-900/50"><td class="py-3 px-3.5 font-mono font-bold text-cyan-300">/worktree</td><td class="py-3 px-3.5 text-slate-200">Ejecuta el trabajo en un nuevo Git worktree.</td><td class="py-3 px-3.5 text-slate-400">Orientado a flujos de desarrollo.</td></tr>
+                            <tr class="hover:bg-slate-900/50"><td class="py-3 px-3.5 font-mono font-bold text-cyan-300">/init</td><td class="py-3 px-3.5 text-slate-200">Genera una estructura inicial <code class="text-indigo-300">AGENTS.md</code> para el proyecto.</td><td class="py-3 px-3.5 text-slate-400">Orientado a programación/Codex.</td></tr>
+                            <tr class="hover:bg-slate-900/50"><td class="py-3 px-3.5 font-mono font-bold text-cyan-300">/ide-context</td><td class="py-3 px-3.5 text-slate-200">Activa o desactiva el contexto compartido del IDE.</td><td class="py-3 px-3.5 text-slate-400">Solo cuando esa integración está disponible.</td></tr>
+                            <tr class="hover:bg-slate-900/50"><td class="py-3 px-3.5 font-mono font-bold text-cyan-300">/mcp</td><td class="py-3 px-3.5 text-slate-200">Abre el estado de MCP y los servidores conectados.</td><td class="py-3 px-3.5 text-slate-400">Orientado a integraciones y herramientas.</td></tr>
+                            <tr class="hover:bg-slate-900/50"><td class="py-3 px-3.5 font-mono font-bold text-cyan-300">/review</td><td class="py-3 px-3.5 text-slate-200">Inicia una revisión de código.</td><td class="py-3 px-3.5 text-slate-400">Entorno de desarrollo compatible.</td></tr>
+                            <tr class="hover:bg-slate-900/50"><td class="py-3 px-3.5 font-mono font-bold text-cyan-300">/approve</td><td class="py-3 px-3.5 text-slate-200">Aprueba un reintento de una denegación de revisión automática, cuando está activa.</td><td class="py-3 px-3.5 text-slate-400">Uso específico; no es un atajo general.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="bg-amber-500/10 border border-amber-500/30 rounded-2xl p-4 text-xs sm:text-sm text-amber-100 leading-relaxed">
+                    <strong class="text-amber-300">Importante:</strong> esta es una referencia de la aplicación de escritorio documentada por OpenAI, no una promesa de que todos los comandos estén disponibles en ChatGPT para Android, iPhone o en la web. La forma fiable de comprobarlo es escribir <span class="code-pill">/</span> en el cuadro de entrada y observar las opciones que realmente ofrece la aplicación.
+                </div>
+            </div>
+
+            <!-- Atajos de teclado -->
+            <div class="agency-card rounded-3xl p-5 sm:p-7 space-y-4">
+                <h3 class="text-lg sm:text-xl font-bold text-white">Atajos de teclado documentados (escritorio)</h3>
+                <p class="text-sm text-slate-300">En Windows, la referencia oficial incluye, entre otros:</p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-3.5 flex items-center justify-between gap-2">
+                        <span class="text-xs sm:text-sm text-slate-200">Abrir menú de comandos</span>
+                        <span class="code-pill shrink-0">Ctrl + Shift + P / Ctrl + K</span>
+                    </div>
+                    <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-3.5 flex items-center justify-between gap-2">
+                        <span class="text-xs sm:text-sm text-slate-200">Abrir ajustes</span>
+                        <span class="code-pill shrink-0">Ctrl + ,</span>
+                    </div>
+                    <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-3.5 flex items-center justify-between gap-2">
+                        <span class="text-xs sm:text-sm text-slate-200">Ver atajos de teclado</span>
+                        <span class="code-pill shrink-0">Ctrl + /</span>
+                    </div>
+                    <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-3.5 flex items-center justify-between gap-2">
+                        <span class="text-xs sm:text-sm text-slate-200">Nueva conversación</span>
+                        <span class="code-pill shrink-0">Ctrl + N</span>
+                    </div>
+                    <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-3.5 flex items-center justify-between gap-2">
+                        <span class="text-xs sm:text-sm text-slate-200">Buscar dentro del chat</span>
+                        <span class="code-pill shrink-0">Ctrl + F</span>
+                    </div>
+                    <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-3.5 flex items-center justify-between gap-2">
+                        <span class="text-xs sm:text-sm text-slate-200">Archivar conversación</span>
+                        <span class="code-pill shrink-0">Ctrl + Shift + A</span>
+                    </div>
+                    <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-3.5 flex items-center justify-between gap-2">
+                        <span class="text-xs sm:text-sm text-slate-200">Abrir selector de modelo</span>
+                        <span class="code-pill shrink-0">Ctrl + Shift + M</span>
+                    </div>
+                    <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-3.5 flex items-center justify-between gap-2">
+                        <span class="text-xs sm:text-sm text-slate-200">Restaurar borrador anterior (cuadro vacío)</span>
+                        <span class="code-pill shrink-0">↑</span>
+                    </div>
+                </div>
+
+                <p class="text-xs sm:text-sm text-slate-400">
+                    Los atajos pueden variar según sistema operativo, versión y vista activa. En Android no se aplican necesariamente.
+                </p>
+            </div>
+
+            <div class="tab-footer-nav pt-4"></div>
+        </section>
+
+        <!-- ==========================================
+             PESTAÑA 2: PARTE II — IMÁGENES, ESTILOS Y RETOQUE
+             ========================================== -->
+        <section id="tab-2" class="tab-panel tab-transition hidden space-y-6">
+            <div class="agency-card rounded-3xl p-5 sm:p-7 space-y-4">
+                <span class="agency-badge text-xs font-mono font-semibold px-3 py-1 rounded-full">PARTE II — PALABRAS CLAVE PARA IMÁGENES</span>
+                <h2 class="text-xl sm:text-2xl font-extrabold text-white">3. Cómo interpretar estas palabras</h2>
+                <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                    Las siguientes expresiones son <strong class="text-white">instrucciones visuales en lenguaje natural</strong>, no comandos reservados. Pueden escribirse solas, con una barra o —mejor— dentro de una frase que explique el resultado deseado.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+                    <div class="bg-rose-950/30 border border-rose-500/30 rounded-2xl p-4">
+                        <span class="text-xs font-mono uppercase text-rose-400 font-bold block mb-1">Menos preciso</span>
+                        <code class="text-sm font-mono text-rose-200">/blueprint</code>
+                    </div>
+                    <div class="bg-emerald-950/30 border border-emerald-500/30 rounded-2xl p-4">
+                        <span class="text-xs font-mono uppercase text-emerald-400 font-bold block mb-1">Más preciso (Recomendado)</span>
+                        <code class="text-xs sm:text-sm font-mono text-emerald-200 block leading-relaxed">
+                            Representa esta bicicleta como un plano técnico azul, con líneas blancas finas, vistas frontal y lateral, cotas y etiquetas legibles. Conserva la geometría real del cuadro.
+                        </code>
+                    </div>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-400">La segunda instrucción da contexto y reduce la ambigüedad.</p>
+            </div>
+
+            <!-- Sección 4: Estilos, retoque y restauración -->
+            <div class="agency-card rounded-3xl p-5 sm:p-7 space-y-4">
+                <h3 class="text-lg sm:text-xl font-bold text-white">4. Estilos, retoque y restauración fotográfica</h3>
+
+                <div class="overflow-x-auto rounded-2xl border border-slate-800">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-slate-900/95 border-b border-slate-800 text-xs font-mono uppercase text-cyan-400">
+                                <th class="py-3 px-3.5">Palabra o expresión</th>
+                                <th class="py-3 px-3.5">Qué puede pedir</th>
+                                <th class="py-3 px-3.5">Corrección / cautela</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-800/70 text-xs sm:text-sm">
+                            <tr><td class="py-3 px-3.5 font-mono text-cyan-300 font-semibold">blueprint</td><td class="py-3 px-3.5 text-slate-200">Apariencia de plano técnico, normalmente azul con líneas claras.</td><td class="py-3 px-3.5 text-slate-400">No garantiza medidas técnicas correctas.</td></tr>
+                            <tr><td class="py-3 px-3.5 font-mono text-cyan-300 font-semibold">motion blur</td><td class="py-3 px-3.5 text-slate-200">Desenfoque de movimiento en sujeto o fondo.</td><td class="py-3 px-3.5 text-slate-400">Indicar qué elemento se mueve y en qué dirección.</td></tr>
+                            <tr><td class="py-3 px-3.5 font-mono text-cyan-300 font-semibold">cinematic</td><td class="py-3 px-3.5 text-slate-200">Tratamiento visual cinematográfico.</td><td class="py-3 px-3.5 text-slate-400">Añadir luz, contraste, color y encuadre deseados.</td></tr>
+                            <tr><td class="py-3 px-3.5 font-mono text-cyan-300 font-semibold">aesthetic</td><td class="py-3 px-3.5 text-slate-200">Una estética o atmósfera determinada.</td><td class="py-3 px-3.5 text-slate-400">Es demasiado genérico sin describir cuál.</td></tr>
+                            <tr><td class="py-3 px-3.5 font-mono text-cyan-300 font-semibold">photorealistic / photo-realistic</td><td class="py-3 px-3.5 text-slate-200">Apariencia de fotografía real.</td><td class="py-3 px-3.5 text-slate-400">Añadir textura, iluminación y contexto.</td></tr>
+                            <tr><td class="py-3 px-3.5 font-mono text-cyan-300 font-semibold">colorize / recolor</td><td class="py-3 px-3.5 text-slate-200">Colorear una imagen monocroma o cambiar colores.</td><td class="py-3 px-3.5 text-slate-400">La reconstrucción de colores históricos puede ser inferida, no recuperada con certeza.</td></tr>
+                            <tr><td class="py-3 px-3.5 font-mono text-cyan-300 font-semibold">restore</td><td class="py-3 px-3.5 text-slate-200">Restaurar una fotografía deteriorada.</td><td class="py-3 px-3.5 text-slate-400">Especificar arañazos, manchas, roturas y qué debe preservarse.</td></tr>
+                            <tr><td class="py-3 px-3.5 font-mono text-cyan-300 font-semibold">enhance</td><td class="py-3 px-3.5 text-slate-200">Mejorar claridad, luz, contraste y detalle.</td><td class="py-3 px-3.5 text-slate-400">No equivale necesariamente a recuperar información perdida.</td></tr>
+                            <tr><td class="py-3 px-3.5 font-mono text-cyan-300 font-semibold">upscale</td><td class="py-3 px-3.5 text-slate-200">Aumentar la resolución aparente.</td><td class="py-3 px-3.5 text-slate-400">No reconstruye mágicamente detalles auténticos.</td></tr>
+                            <tr><td class="py-3 px-3.5 font-mono text-cyan-300 font-semibold">retouch</td><td class="py-3 px-3.5 text-slate-200">Retoque fotográfico.</td><td class="py-3 px-3.5 text-slate-400">Indicar si se busca retoque natural o intenso.</td></tr>
+                            <tr><td class="py-3 px-3.5 font-mono text-cyan-300 font-semibold">bokeh / shallow depth of field</td><td class="py-3 px-3.5 text-slate-200">Fondo desenfocado y sujeto enfocado.</td><td class="py-3 px-3.5 text-slate-400">Más claro que el supuesto código <code class="text-rose-300">/porto</code>.</td></tr>
+                            <tr><td class="py-3 px-3.5 font-mono text-cyan-300 font-semibold">black and white / monochrome</td><td class="py-3 px-3.5 text-slate-200">Blanco y negro o tratamiento monocromático.</td><td class="py-3 px-3.5 text-slate-400">Especificar contraste y grano si importan.</td></tr>
+                            <tr><td class="py-3 px-3.5 font-mono text-cyan-300 font-semibold">film grain</td><td class="py-3 px-3.5 text-slate-200">Grano fotográfico de película.</td><td class="py-3 px-3.5 text-slate-400">Describir intensidad y tipo de acabado.</td></tr>
+                            <tr><td class="py-3 px-3.5 font-mono text-cyan-300 font-semibold">golden hour</td><td class="py-3 px-3.5 text-slate-200">Luz cálida de amanecer o atardecer.</td><td class="py-3 px-3.5 text-slate-400">No significa necesariamente que la escena ocurra al atardecer.</td></tr>
+                            <tr><td class="py-3 px-3.5 font-mono text-cyan-300 font-semibold">studio lighting</td><td class="py-3 px-3.5 text-slate-200">Iluminación de estudio.</td><td class="py-3 px-3.5 text-slate-400">Precisar luz principal, relleno y fondo.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Evaluación de términos originales -->
+                <div class="pt-3 space-y-2.5">
+                    <h4 class="text-base font-bold text-indigo-300">Evaluación de los términos originales de retoque</h4>
+                    <ul class="space-y-2 text-xs sm:text-sm text-slate-300">
+                        <li class="bg-slate-900/70 p-3 rounded-xl border border-slate-800"><strong class="text-cyan-300 font-mono">Pro shot / professional photo:</strong> expresión descriptiva válida, pero no un código. Es mejor decir qué fotografía profesional se busca (retrato editorial, catálogo, producto, etc.).</li>
+                        <li class="bg-slate-900/70 p-3 rounded-xl border border-slate-800"><strong class="text-cyan-300 font-mono">X-ray:</strong> puede generar una representación visual de rayos X o una vista ficticia del interior. No debe interpretarse como diagnóstico ni como radiografía real.</li>
+                        <li class="bg-slate-900/70 p-3 rounded-xl border border-slate-800"><strong class="text-cyan-300 font-mono">Color enhance / /full color:</strong> no son comandos oficiales. Para colorear, usar <code class="text-emerald-300">colorize</code> y describir el resultado. Los colores originales de una foto antigua no siempre se pueden conocer.</li>
+                        <li class="bg-slate-900/70 p-3 rounded-xl border border-slate-800"><strong class="text-cyan-300 font-mono">HD real / repair HD / /4K Acter:</strong> no son órdenes oficiales reconocidas. Sustituir por <code class="text-emerald-300">restore</code>, <code class="text-emerald-300">enhance</code> o <code class="text-emerald-300">upscale</code>, explicando el defecto y el resultado esperado.</li>
+                        <li class="bg-slate-900/70 p-3 rounded-xl border border-slate-800"><strong class="text-cyan-300 font-mono">/porto:</strong> probablemente intenta decir <code class="text-emerald-300">portrait</code> o <code class="text-emerald-300">bokeh</code>; no es un comando documentado.</li>
+                        <li class="bg-slate-900/70 p-3 rounded-xl border border-slate-800"><strong class="text-cyan-300 font-mono">/White teeth:</strong> petición de retoque localizada, no comando. Puede pedirse “blanquea ligeramente los dientes, manteniendo un tono natural”.</li>
+                        <li class="bg-slate-900/70 p-3 rounded-xl border border-slate-800"><strong class="text-cyan-300 font-mono">/ageless:</strong> no es comando oficial. Especificar el retoque sin alterar identidad ni textura natural.</li>
+                        <li class="bg-slate-900/70 p-3 rounded-xl border border-slate-800"><strong class="text-cyan-300 font-mono">VG Person remove / New VG:</strong> no se han encontrado como comandos oficiales documentados. Para quitar personas o cambiar fondos, describir directamente la edición.</li>
+                        <li class="bg-slate-900/70 p-3 rounded-xl border border-slate-800"><strong class="text-cyan-300 font-mono">Higyle:</strong> parece una errata o término mal transcrito; no se identifica como comando reconocido. Para probar peinados, pedir “muestra tres variantes de peinado manteniendo el rostro y la identidad”.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tab-footer-nav pt-4"></div>
+        </section>
+
+        <!-- ==========================================
+             PESTAÑA 3: PERSPECTIVAS, CÁMARA Y FOTOMONTAJE
+             ========================================== -->
+        <section id="tab-3" class="tab-panel tab-transition hidden space-y-6">
+            <!-- Sección 5: Perspectivas, encuadres y cámara -->
+            <div class="agency-card rounded-3xl p-5 sm:p-7 space-y-4">
+                <span class="agency-badge text-xs font-mono font-semibold px-3 py-1 rounded-full">ENCUADRE Y COMPOSICIÓN</span>
+                <h2 class="text-xl sm:text-2xl font-extrabold text-white">5. Perspectivas, encuadres y cámara</h2>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs sm:text-sm">
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">top-down / top view</span><p class="text-slate-300">Vista desde arriba.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">bird's-eye view</span><p class="text-slate-300">Vista aérea muy elevada, casi cenital.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">drone view / aerial view</span><p class="text-slate-300">Perspectiva aérea similar a una toma de dron.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">low angle</span><p class="text-slate-300">Cámara situada por debajo del sujeto, mirando hacia arriba.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">high angle</span><p class="text-slate-300">Cámara situada por encima del sujeto, mirando hacia abajo.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">eye-level</span><p class="text-slate-300">Cámara a la altura de los ojos.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">side view / profile view</span><p class="text-slate-300">Vista lateral o de perfil.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">front view</span><p class="text-slate-300">Vista frontal.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">rear view</span><p class="text-slate-300">Vista desde atrás.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">three-quarter view</span><p class="text-slate-300">Vista en tres cuartos.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">wide angle</span><p class="text-slate-300">Perspectiva gran angular. Puede deformar bordes y proporciones.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">close-up</span><p class="text-slate-300">Primer plano.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">extreme close-up / macro</span><p class="text-slate-300">Detalle muy cercano.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">over-the-shoulder</span><p class="text-slate-300">Cámara por encima o detrás del hombro de un personaje.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">full body</span><p class="text-slate-300">Sujeto de cuerpo entero, pies incluidos.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">medium shot</span><p class="text-slate-300">Plano medio.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">long shot / wide shot</span><p class="text-slate-300">Plano general o abierto.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">Dutch angle / tilted frame</span><p class="text-slate-300">Horizonte inclinado.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">shallow depth of field</span><p class="text-slate-300">Poca profundidad de campo; fondo desenfocado.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">deep depth of field</span><p class="text-slate-300">Gran profundidad de campo; más elementos enfocados.</p></div>
+                </div>
+
+                <div class="bg-indigo-950/40 border border-indigo-500/40 rounded-2xl p-4 text-xs sm:text-sm text-indigo-100">
+                    <strong class="text-cyan-300">Consejo:</strong> no basta con poner <span class="code-pill">full body</span>. Para evitar recortes, escribir: <em class="text-white">«persona visible de la cabeza a los pies, ambos pies dentro del encuadre, espacio libre alrededor y sin cortar manos ni calzado»</em>.
+                </div>
+            </div>
+
+            <!-- Sección 6: Fotomontaje, vestuario, escenarios e interiores -->
+            <div class="agency-card rounded-3xl p-5 sm:p-7 space-y-4">
+                <h3 class="text-lg sm:text-xl font-bold text-white">6. Fotomontaje, vestuario, escenarios e interiores</h3>
+
+                <div class="overflow-x-auto rounded-2xl border border-slate-800">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-slate-900/95 border-b border-slate-800 text-xs font-mono uppercase text-cyan-400">
+                                <th class="py-3 px-3.5">Expresión</th>
+                                <th class="py-3 px-3.5">Qué pedir de forma clara</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-800/70 text-xs sm:text-sm">
+                            <tr><td class="py-3 px-3.5 font-mono text-cyan-300 font-semibold">composite image / photo composite</td><td class="py-3 px-3.5 text-slate-200">Combinar personas u objetos de varias imágenes. Identificar qué aporta cada imagen.</td></tr>
+                            <tr><td class="py-3 px-3.5 font-mono text-cyan-300 font-semibold">place me in... / insert into scene</td><td class="py-3 px-3.5 text-slate-200">Integrar a la persona en un lugar o escenario.</td></tr>
+                            <tr><td class="py-3 px-3.5 font-mono text-cyan-300 font-semibold">outfit transfer / change clothing</td><td class="py-3 px-3.5 text-slate-200">Cambiar la ropa usando una imagen de referencia. Aclarar qué rasgos de la persona deben permanecer.</td></tr>
+                            <tr><td class="py-3 px-3.5 font-mono text-cyan-300 font-semibold">passport photo / ID photo</td><td class="py-3 px-3.5 text-slate-200">Retrato tipo documento. Comprobar las normas oficiales del país; una imagen generada no garantiza aceptación administrativa.</td></tr>
+                            <tr><td class="py-3 px-3.5 font-mono text-cyan-300 font-semibold">billboard mockup</td><td class="py-3 px-3.5 text-slate-200">Simular un anuncio en una valla publicitaria.</td></tr>
+                            <tr><td class="py-3 px-3.5 font-mono text-cyan-300 font-semibold">interior makeover / interior redesign</td><td class="py-3 px-3.5 text-slate-200">Proponer una nueva decoración o distribución interior.</td></tr>
+                            <tr><td class="py-3 px-3.5 font-mono text-cyan-300 font-semibold">hairstyle variations</td><td class="py-3 px-3.5 text-slate-200">Mostrar distintos cortes o peinados.</td></tr>
+                            <tr><td class="py-3 px-3.5 font-mono text-cyan-300 font-semibold">uniform / costume change</td><td class="py-3 px-3.5 text-slate-200">Cambiar vestuario por uniforme o disfraz. No implica que la persona tenga esa profesión.</td></tr>
+                            <tr><td class="py-3 px-3.5 font-mono text-cyan-300 font-semibold">background replacement</td><td class="py-3 px-3.5 text-slate-200">Sustituir el fondo.</td></tr>
+                            <tr><td class="py-3 px-3.5 font-mono text-cyan-300 font-semibold">object removal</td><td class="py-3 px-3.5 text-slate-200">Eliminar un objeto o persona concreta.</td></tr>
+                            <tr><td class="py-3 px-3.5 font-mono text-cyan-300 font-semibold">object replacement</td><td class="py-3 px-3.5 text-slate-200">Sustituir un elemento manteniendo el resto.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="pt-2 space-y-2">
+                    <h4 class="text-base font-bold text-indigo-300">Sobre los códigos originales</h4>
+                    <ul class="space-y-2 text-xs sm:text-sm text-slate-300">
+                        <li class="bg-slate-900/70 p-3 rounded-xl border border-slate-800"><strong class="text-cyan-300 font-mono">Together:</strong> palabra ambigua. Mejor: <em class="text-slate-200">«combina a las dos personas de las imágenes A y B en una sola fotografía, manteniendo sus rostros reconocibles y creando una iluminación coherente»</em>.</li>
+                        <li class="bg-slate-900/70 p-3 rounded-xl border border-slate-800"><strong class="text-cyan-300 font-mono">transfer me:</strong> no es comando. Pedir directamente la integración en el lugar deseado.</li>
+                        <li class="bg-slate-900/70 p-3 rounded-xl border border-slate-800"><strong class="text-cyan-300 font-mono">transfer outfit:</strong> descripción comprensible, no activador especial.</li>
+                        <li class="bg-slate-900/70 p-3 rounded-xl border border-slate-800"><strong class="text-cyan-300 font-mono">Passporto:</strong> parece una errata de <code class="text-emerald-300">passport</code>; no es comando.</li>
+                        <li class="bg-slate-900/70 p-3 rounded-xl border border-slate-800"><strong class="text-cyan-300 font-mono">3D Billboard:</strong> describe un concepto visual válido, no un comando.</li>
+                        <li class="bg-slate-900/70 p-3 rounded-xl border border-slate-800"><strong class="text-cyan-300 font-mono">Interior makeover:</strong> es una instrucción útil en lenguaje natural, no un código.</li>
+                        <li class="bg-slate-900/70 p-3 rounded-xl border border-slate-800"><strong class="text-cyan-300 font-mono">/CR7 o nombres de famosos:</strong> escribir el nombre no es un comando. Además, la generación de imágenes con personas reales puede estar sujeta a límites y políticas.</li>
+                        <li class="bg-slate-900/70 p-3 rounded-xl border border-slate-800"><strong class="text-cyan-300 font-mono">/fireman, /police, /FBI, /Formula 1:</strong> son etiquetas descriptivas de vestuario, profesión o contexto, no comandos.</li>
+                        <li class="bg-slate-900/70 p-3 rounded-xl border border-slate-800"><strong class="text-cyan-300 font-mono">Higyle:</strong> no se ha podido validar. Usar <code class="text-emerald-300">hairstyle variations</code>.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tab-footer-nav pt-4"></div>
+        </section>
+
+        <!-- ==========================================
+             PESTAÑA 4: DIAGRAMAS TÉCNICOS Y DISEÑO EDITORIAL
+             ========================================== -->
+        <section id="tab-4" class="tab-panel tab-transition hidden space-y-6">
+            <!-- Sección 7: Diagramas, infografías y visualizaciones técnicas -->
+            <div class="agency-card rounded-3xl p-5 sm:p-7 space-y-4">
+                <span class="agency-badge text-xs font-mono font-semibold px-3 py-1 rounded-full">VISUALIZACIÓN TÉCNICA Y REDES</span>
+                <h2 class="text-xl sm:text-2xl font-extrabold text-white">7. Diagramas, infografías y visualizaciones técnicas</h2>
+                <p class="text-sm sm:text-base text-slate-300">
+                    Esta es una categoría especialmente útil y merece ampliarse. Los siguientes términos describen formatos visuales conocidos:
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs sm:text-sm">
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">exploded view</span><p class="text-slate-300">Despiece de un objeto con sus componentes separados y alineados.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">cutaway view</span><p class="text-slate-300">Vista en corte que deja ver el interior.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">cross-section</span><p class="text-slate-300">Sección transversal o corte interno.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">technical drawing</span><p class="text-slate-300">Dibujo técnico.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">blueprint</span><p class="text-slate-300">Plano técnico de apariencia azul.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">schematic</span><p class="text-slate-300">Esquema de funcionamiento o conexiones.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">isometric view</span><p class="text-slate-300">Representación axonométrica/isométrica.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">orthographic views</span><p class="text-slate-300">Vistas ortogonales: frontal, lateral, superior, etc.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">wireframe</span><p class="text-slate-300">Representación mediante malla o estructura de líneas.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">360-degree view</span><p class="text-slate-300">Presentación conceptual de un objeto desde múltiples ángulos.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">assembly diagram</span><p class="text-slate-300">Diagrama de montaje.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">disassembly diagram</span><p class="text-slate-300">Diagrama de desmontaje.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">parts diagram</span><p class="text-slate-300">Despiece con componentes identificados.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">annotated diagram</span><p class="text-slate-300">Diagrama con anotaciones y llamadas.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">dimensioned drawing</span><p class="text-slate-300">Dibujo con cotas y dimensiones.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">infographic</span><p class="text-slate-300">Infografía explicativa.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">flowchart</span><p class="text-slate-300">Diagrama de flujo.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">timeline</span><p class="text-slate-300">Línea temporal.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">mind map</span><p class="text-slate-300">Mapa mental.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">before-and-after</span><p class="text-slate-300">Comparación antes/después.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">comparison chart</span><p class="text-slate-300">Comparación visual de opciones o elementos.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">step-by-step illustration</span><p class="text-slate-300">Ilustración de un procedimiento por pasos.</p></div>
+                </div>
+
+                <div class="bg-amber-500/10 border border-amber-500/30 rounded-2xl p-4 text-xs sm:text-sm text-amber-100">
+                    <strong class="text-amber-300">Advertencia técnica:</strong> un dibujo generado puede parecer un plano o despiece profesional, pero no garantiza medidas, tolerancias, conexiones ni ingeniería correctas. Si se utilizará para fabricar, reparar o instalar algo, hay que verificarlo con documentación técnica.
+                </div>
+            </div>
+
+            <!-- Sección 8: Diseño editorial y contenidos para redes -->
+            <div class="agency-card rounded-3xl p-5 sm:p-7 space-y-4">
+                <h3 class="text-lg sm:text-xl font-bold text-white">8. Diseño editorial y contenidos para redes</h3>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs sm:text-sm">
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">magazine cover</span><p class="text-slate-300">Portada de revista.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">YouTube thumbnail</span><p class="text-slate-300">Miniatura para YouTube.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">comic strip</span><p class="text-slate-300">Tira de cómic.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">storyboard</span><p class="text-slate-300">Secuencia de viñetas para planificar una escena.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">carousel / carousel slides</span><p class="text-slate-300">Serie de diapositivas coordinadas para un carrusel.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">social media ad</span><p class="text-slate-300">Anuncio para redes sociales.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">Meta Ads creative</span><p class="text-slate-300">Creatividad publicitaria destinada a campañas de Meta.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">poster</span><p class="text-slate-300">Cartel o póster.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">editorial layout</span><p class="text-slate-300">Diseño editorial.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">product hero image</span><p class="text-slate-300">Imagen principal de producto.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">product photography</span><p class="text-slate-300">Fotografía comercial de producto.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">catalog image</span><p class="text-slate-300">Imagen de catálogo.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">packaging mockup</span><p class="text-slate-300">Simulación visual de un envase.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">presentation slide</span><p class="text-slate-300">Diapositiva de presentación.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">handwritten notes</span><p class="text-slate-300">Apuntes con apariencia manuscrita.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">recipe infographic</span><p class="text-slate-300">Infografía de receta.</p></div>
+                </div>
+
+                <div class="pt-2 space-y-2">
+                    <h4 class="text-base font-bold text-indigo-300">Correcciones de la lista inicial:</h4>
+                    <ul class="space-y-1.5 text-xs sm:text-sm text-slate-300">
+                        <li>• <code class="text-rose-300">handwriten</code> → <strong class="text-emerald-300 font-mono">handwritten</strong>.</li>
+                        <li>• <code class="text-rose-300">imagencipe</code> → no es una palabra reconocida; probablemente se pretendía decir <strong class="text-emerald-300 font-mono">recipe infographic</strong>.</li>
+                        <li>• <code class="text-rose-300">carusel</code> → <strong class="text-emerald-300 font-mono">carousel</strong>.</li>
+                        <li>• <code class="text-rose-300">Metaads</code> → mejor <strong class="text-emerald-300 font-mono">Meta Ads creative</strong>.</li>
+                        <li>• <code class="text-rose-300">YT thumbnail</code> → mejor <strong class="text-emerald-300 font-mono">YouTube thumbnail</strong>.</li>
+                        <li>• <code class="text-rose-300">ad paranormal</code> → no es un código conocido. Para añadir un fantasma, describir directamente la figura, su posición, transparencia e iluminación.</li>
+                        <li>• <code class="text-cyan-300">Iceberg</code> → es una metáfora visual útil para una infografía de capas visibles y ocultas, no un comando especial.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tab-footer-nav pt-4"></div>
+        </section>
+
+        <!-- ==========================================
+             PESTAÑA 5: PARTE III — ABREVIATURAS DE TEXTO
+             ========================================== -->
+        <section id="tab-5" class="tab-panel tab-transition hidden space-y-6">
+            <div class="agency-card rounded-3xl p-5 sm:p-7 space-y-4">
+                <span class="agency-badge text-xs font-mono font-semibold px-3 py-1 rounded-full">PARTE III — ABREVIATURAS Y ETIQUETAS PARA RESPUESTAS DE TEXTO</span>
+                <h2 class="text-xl sm:text-2xl font-extrabold text-white">
+                    9. Evaluación de los supuestos códigos ZP, STE, CRIT, CON, PLAN, etc.
+                </h2>
+                <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                    Estas etiquetas pueden servir como <strong class="text-white">convenciones personales</strong> si se define su significado. No son comandos oficiales ni existe garantía de que todos los modelos las interpreten igual.
+                </p>
+
+                <div class="overflow-x-auto rounded-2xl border border-slate-800">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-slate-900/95 border-b border-slate-800 text-xs font-mono uppercase text-cyan-400">
+                                <th class="py-3 px-3.5">Etiqueta</th>
+                                <th class="py-3 px-3.5">Interpretación propuesta</th>
+                                <th class="py-3 px-3.5">Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-800/70 text-xs sm:text-sm">
+                            <tr><td class="py-3 px-3.5 font-mono font-bold text-cyan-300">ZP</td><td class="py-3 px-3.5 text-slate-200">Respuesta de máxima calidad, con revisión crítica y comprobación de errores.</td><td class="py-3 px-3.5 text-slate-400">No documentado como comando; significado no universal.</td></tr>
+                            <tr><td class="py-3 px-3.5 font-mono font-bold text-cyan-300">TL;DR</td><td class="py-3 px-3.5 text-slate-200">Resumen muy breve.</td><td class="py-3 px-3.5 text-slate-400">Convención ampliamente entendida en Internet, no función especial.</td></tr>
+                            <tr><td class="py-3 px-3.5 font-mono font-bold text-cyan-300">STE</td><td class="py-3 px-3.5 text-slate-200">Se afirma que significa procedimiento paso a paso.</td><td class="py-3 px-3.5 text-slate-400">No es una abreviatura estándar inequívoca. Mejor usar <code class="text-emerald-300">STEP-BY-STEP</code>.</td></tr>
+                            <tr><td class="py-3 px-3.5 font-mono font-bold text-cyan-300">CRIT</td><td class="py-3 px-3.5 text-slate-200">Crítica exigente, búsqueda de fallos y riesgos.</td><td class="py-3 px-3.5 text-slate-400">Convención útil, no comando oficial.</td></tr>
+                            <tr><td class="py-3 px-3.5 font-mono font-bold text-cyan-300">CON</td><td class="py-3 px-3.5 text-slate-200">Comparación estructurada.</td><td class="py-3 px-3.5 text-slate-400">Ambiguo; mejor <code class="text-emerald-300">COMPARE</code>.</td></tr>
+                            <tr><td class="py-3 px-3.5 font-mono font-bold text-cyan-300">PLAN</td><td class="py-3 px-3.5 text-slate-200">Plan de acción por etapas.</td><td class="py-3 px-3.5 text-slate-400">Palabra normal; además existe un <code class="text-cyan-300">/plan</code> de interfaz en determinados entornos, con otra naturaleza.</td></tr>
+                            <tr><td class="py-3 px-3.5 font-mono font-bold text-cyan-300">PROMPT</td><td class="py-3 px-3.5 text-slate-200">Diseñar o mejorar un prompt.</td><td class="py-3 px-3.5 text-slate-400">Instrucción normal, no código.</td></tr>
+                            <tr><td class="py-3 px-3.5 font-mono font-bold text-cyan-300">AUTO</td><td class="py-3 px-3.5 text-slate-200">Analizar y reformular la pregunta antes de responder.</td><td class="py-3 px-3.5 text-slate-400">No estándar; explicar el comportamiento deseado.</td></tr>
+                            <tr><td class="py-3 px-3.5 font-mono font-bold text-cyan-300">FAC</td><td class="py-3 px-3.5 text-slate-200">Separar hechos, inferencias y opiniones.</td><td class="py-3 px-3.5 text-slate-400">No estándar; puede definirse como convención.</td></tr>
+                            <tr><td class="py-3 px-3.5 font-mono font-bold text-cyan-300">IDEA 50</td><td class="py-3 px-3.5 text-slate-200">Generar 50 ideas.</td><td class="py-3 px-3.5 text-slate-400">Instrucción numérica normal, no modo secreto.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Versión mejorada: etiquetas transparentes -->
+            <div class="agency-card rounded-3xl p-5 sm:p-7 space-y-4">
+                <h3 class="text-lg sm:text-xl font-bold text-white">Versión mejorada: etiquetas transparentes y fáciles de recordar</h3>
+                <p class="text-sm text-slate-300">
+                    En lugar de memorizar abreviaturas dudosas, conviene utilizar estas etiquetas acompañadas de una instrucción clara:
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs sm:text-sm">
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">RESUMEN</span><p class="text-slate-300">Resume en el número de palabras o puntos indicado.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">PASO A PASO</span><p class="text-slate-300">Divide el trabajo en pasos ordenados y accionables.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">CRÍTICA</span><p class="text-slate-300">Busca errores, supuestos débiles, riesgos y objeciones.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">COMPARAR</span><p class="text-slate-300">Compara opciones con criterios, ventajas, inconvenientes y conclusión.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">PLAN</span><p class="text-slate-300">Convierte el objetivo en etapas, tareas, prioridades y plazos.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">PROMPT</span><p class="text-slate-300">Diseña un prompt completo, preciso y reutilizable.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">VERIFICAR</span><p class="text-slate-300">Comprueba afirmaciones y aporta fuentes cuando corresponda.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">HECHOS / INFERENCIAS</span><p class="text-slate-300">Separa datos comprobados, inferencias, hipótesis y opiniones.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">ABOGADO DEL DIABLO</span><p class="text-slate-300">Construye el mejor argumento contrario a la propuesta.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">IDEAS 50</span><p class="text-slate-300">Genera 50 ideas distintas, evitando duplicados y clichés.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">EXPLICA SIMPLE</span><p class="text-slate-300">Explica para un principiante, sin perder precisión.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">MODO EXPERTO</span><p class="text-slate-300">Utiliza terminología técnica y profundiza en los matices.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">AUDITORÍA</span><p class="text-slate-300">Revisa un documento, proceso o plan con una lista de criterios.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">CHECKLIST</span><p class="text-slate-300">Convierte el procedimiento en una lista de comprobación.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">DECISIÓN</span><p class="text-slate-300">Evalúa alternativas y recomienda una opción justificando los criterios.</p></div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl"><span class="code-pill mb-1">NO INVENTES</span><p class="text-slate-300">Si no hay evidencia suficiente, dilo; no rellenes huecos con datos inventados.</p></div>
+                </div>
+
+                <div class="bg-slate-950/90 border border-indigo-500/40 rounded-2xl p-4 space-y-2">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-mono uppercase text-cyan-400 font-bold">Ejemplo práctico listo para copiar</span>
+                        <button onclick="copyPromptBlock('critica-example')" class="text-xs font-mono bg-indigo-600/30 hover:bg-indigo-600/50 border border-indigo-400/40 text-indigo-200 px-2.5 py-1 rounded-lg">Copiar</button>
+                    </div>
+                    <p id="critica-example" class="font-mono text-xs sm:text-sm text-emerald-200 leading-relaxed">CRÍTICA: analiza mi plan como un experto escéptico. Identifica cinco riesgos, los supuestos no demostrados y las condiciones que podrían hacerlo fracasar. No suavices las conclusiones.</p>
+                </div>
+            </div>
+
+            <div class="tab-footer-nav pt-4"></div>
+        </section>
+
+        <!-- ==========================================
+             PESTAÑA 6: PARTE IV — RECURSOS Y FÓRMULA DE PROMPTS
+             ========================================== -->
+        <section id="tab-6" class="tab-panel tab-transition hidden space-y-6">
+            <div class="agency-card rounded-3xl p-5 sm:p-7 space-y-5">
+                <span class="agency-badge text-xs font-mono font-semibold px-3 py-1 rounded-full">PARTE IV — NUEVOS RECURSOS QUE SÍ MERECE LA PENA AÑADIR</span>
+                <h2 class="text-xl sm:text-2xl font-extrabold text-white">10. Palabras clave visuales adicionales</h2>
+                <p class="text-sm sm:text-base text-slate-300">
+                    Las siguientes expresiones son términos de composición, fotografía, diseño o ilustración que pueden mejorar la precisión de las instrucciones:
+                </p>
+
+                <!-- 3 Columnas / Bloques de Vocabulario -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <!-- Composición y lenguaje cinematográfico -->
+                    <div class="bg-slate-900/80 border border-cyan-500/30 rounded-2xl p-4 space-y-2">
+                        <h3 class="text-sm font-bold text-cyan-300 uppercase font-mono">Composición y Cine</h3>
+                        <ul class="space-y-1.5 text-xs text-slate-300">
+                            <li><code class="text-cyan-200 font-mono">establishing shot</code>: plano de establecimiento que sitúa al espectador.</li>
+                            <li><code class="text-cyan-200 font-mono">tracking shot</code>: cámara que acompaña el movimiento.</li>
+                            <li><code class="text-cyan-200 font-mono">dolly in / dolly out</code>: acercamiento o alejamiento de cámara.</li>
+                            <li><code class="text-cyan-200 font-mono">pan left / pan right</code>: movimiento horizontal de cámara.</li>
+                            <li><code class="text-cyan-200 font-mono">tilt up / tilt down</code>: movimiento vertical de cámara.</li>
+                            <li><code class="text-cyan-200 font-mono">rack focus</code>: cambio del plano de enfoque entre elementos.</li>
+                            <li><code class="text-cyan-200 font-mono">silhouette</code>: sujeto en silueta.</li>
+                            <li><code class="text-cyan-200 font-mono">negative space</code>: espacio vacío deliberado en la composición.</li>
+                            <li><code class="text-cyan-200 font-mono">rule of thirds</code>: composición basada en tercios.</li>
+                            <li><code class="text-cyan-200 font-mono">leading lines</code>: líneas que conducen la mirada.</li>
+                            <li><code class="text-cyan-200 font-mono">symmetrical composition</code>: composición simétrica.</li>
+                            <li><code class="text-cyan-200 font-mono">depth layering</code>: profundidad mediante planos diferenciados.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Ilustración y acabado -->
+                    <div class="bg-slate-900/80 border border-indigo-500/30 rounded-2xl p-4 space-y-2">
+                        <h3 class="text-sm font-bold text-indigo-300 uppercase font-mono">Ilustración y Acabado</h3>
+                        <ul class="space-y-1.5 text-xs text-slate-300">
+                            <li><code class="text-indigo-200 font-mono">line art</code>: dibujo de líneas.</li>
+                            <li><code class="text-indigo-200 font-mono">pencil sketch</code>: boceto a lápiz.</li>
+                            <li><code class="text-indigo-200 font-mono">ink illustration</code>: ilustración a tinta.</li>
+                            <li><code class="text-indigo-200 font-mono">watercolor</code>: acuarela.</li>
+                            <li><code class="text-indigo-200 font-mono">oil painting</code>: pintura al óleo.</li>
+                            <li><code class="text-indigo-200 font-mono">woodcut</code>: estética de grabado en madera.</li>
+                            <li><code class="text-indigo-200 font-mono">paper cutout</code>: estética de papel recortado.</li>
+                            <li><code class="text-indigo-200 font-mono">pixel art</code>: arte de píxeles.</li>
+                            <li><code class="text-indigo-200 font-mono">isometric illustration</code>: ilustración isométrica.</li>
+                            <li><code class="text-indigo-200 font-mono">clay render</code>: apariencia de modelo de arcilla.</li>
+                            <li><code class="text-indigo-200 font-mono">low-poly</code>: geometría poligonal simplificada.</li>
+                            <li><code class="text-indigo-200 font-mono">stop-motion aesthetic</code>: estética de animación stop-motion.</li>
+                            <li><code class="text-indigo-200 font-mono">risograph print</code>: acabado de impresión tipo risografía.</li>
+                            <li><code class="text-indigo-200 font-mono">halftone</code>: trama de semitonos.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Materiales, luz y textura -->
+                    <div class="bg-slate-900/80 border border-emerald-500/30 rounded-2xl p-4 space-y-2">
+                        <h3 class="text-sm font-bold text-emerald-300 uppercase font-mono">Materiales, Luz y Textura</h3>
+                        <ul class="space-y-1.5 text-xs text-slate-300">
+                            <li><code class="text-emerald-200 font-mono">softbox lighting</code>: luz suave de estudio.</li>
+                            <li><code class="text-emerald-200 font-mono">rim lighting</code>: luz de contorno.</li>
+                            <li><code class="text-emerald-200 font-mono">backlighting</code>: contraluz.</li>
+                            <li><code class="text-emerald-200 font-mono">volumetric lighting</code>: haces de luz visibles en el ambiente.</li>
+                            <li><code class="text-emerald-200 font-mono">hard light</code>: luz dura con sombras definidas.</li>
+                            <li><code class="text-emerald-200 font-mono">diffused light</code>: luz difusa.</li>
+                            <li><code class="text-emerald-200 font-mono">reflective surface</code>: superficie reflectante.</li>
+                            <li><code class="text-emerald-200 font-mono">matte finish</code>: acabado mate.</li>
+                            <li><code class="text-emerald-200 font-mono">metallic finish</code>: acabado metálico.</li>
+                            <li><code class="text-emerald-200 font-mono">translucent material</code>: material translúcido.</li>
+                            <li><code class="text-emerald-200 font-mono">weathered texture</code>: textura envejecida por el uso o el clima.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección 11: Fórmula práctica -->
+            <div class="agency-card rounded-3xl p-5 sm:p-7 space-y-4">
+                <h3 class="text-lg sm:text-xl font-bold text-white">11. Fórmula práctica para construir mejores prompts de imagen</h3>
+                <p class="text-sm text-slate-300">En lugar de depender de un supuesto código, utilizar esta estructura:</p>
+
+                <!-- Plantilla Maestra -->
+                <div class="bg-slate-950 border border-cyan-500/40 rounded-2xl p-4 space-y-2">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-mono uppercase text-cyan-400 font-bold">Estructura de 10 puntos</span>
+                        <button onclick="copyPromptBlock('formula-master')" class="text-xs font-mono bg-cyan-500/20 hover:bg-cyan-500/30 border border-cyan-400/40 text-cyan-200 px-3 py-1 rounded-lg">Copiar plantilla</button>
+                    </div>
+                    <pre id="formula-master" class="text-xs sm:text-sm font-mono text-slate-200 whitespace-pre-wrap leading-relaxed overflow-x-auto">OBJETIVO:
+Qué imagen necesito y para qué se utilizará.
+
+SUJETO:
+Qué aparece, cómo es y qué está haciendo.
+
+ESCENA:
+Lugar, época, contexto y elementos del entorno.
+
+COMPOSICIÓN:
+Plano, ángulo de cámara, posición del sujeto y espacio negativo.
+
+ESTILO:
+Fotografía, ilustración, blueprint, cómic, infografía, etc.
+
+ILUMINACIÓN Y COLOR:
+Dirección de la luz, temperatura, contraste y paleta.
+
+FORMATO:
+Relación de aspecto y orientación.
+
+TEXTO:
+Texto literal que debe aparecer, ubicación y tipografía.
+
+PRESERVAR:
+Qué elementos de la imagen de referencia deben mantenerse sin cambios.
+
+EVITAR:
+Elementos no deseados, recortes, textos adicionales, logotipos o marcas de agua.</pre>
+                </div>
+
+                <!-- Dos ejemplos completos -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                    <div class="bg-slate-950 border border-indigo-500/40 rounded-2xl p-4 space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-mono uppercase text-indigo-300 font-bold">Ejemplo: edición de una fotografía</span>
+                            <button onclick="copyPromptBlock('ejemplo-foto')" class="text-xs font-mono bg-indigo-500/20 text-indigo-200 px-2.5 py-1 rounded-lg border border-indigo-400/30">Copiar</button>
+                        </div>
+                        <pre id="ejemplo-foto" class="text-xs font-mono text-slate-300 whitespace-pre-wrap leading-relaxed">Edita la fotografía adjunta.
+
+OBJETIVO:
+Convertirla en un retrato editorial de aspecto profesional.
+
+PRESERVAR:
+La identidad, los rasgos faciales, la edad aparente, la expresión y las proporciones reales de la persona.
+
+CAMBIAR:
+Mejorar la iluminación, el equilibrio de color y la separación entre sujeto y fondo.
+
+CÁMARA:
+Plano medio, a la altura de los ojos, perspectiva natural.
+
+ILUMINACIÓN:
+Luz suave lateral de estudio, sombras naturales y detalle visible en la piel.
+
+FONDO:
+Neutro, discreto y ligeramente desenfocado.
+
+ACABADO:
+Fotografía realista, textura natural, sin suavizado excesivo.
+
+RESTRICCIÓN:
+No cambiar el rostro ni añadir accesorios. No modificar ningún otro elemento que no se haya solicitado.</pre>
+                    </div>
+
+                    <div class="bg-slate-950 border border-emerald-500/40 rounded-2xl p-4 space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-mono uppercase text-emerald-300 font-bold">Ejemplo: despiece técnico</span>
+                            <button onclick="copyPromptBlock('ejemplo-despiece')" class="text-xs font-mono bg-emerald-500/20 text-emerald-200 px-2.5 py-1 rounded-lg border border-emerald-400/30">Copiar</button>
+                        </div>
+                        <pre id="ejemplo-despiece" class="text-xs font-mono text-slate-300 whitespace-pre-wrap leading-relaxed">Representa esta máquina mediante una vista explotada (exploded view).
+
+Separa cada componente a lo largo de su eje de montaje, manteniendo su posición relativa y orientación.
+Incluye líneas guía y etiquetas numeradas.
+Fondo blanco, iluminación uniforme y estilo de ilustración técnica industrial.
+Conserva la geometría y las proporciones del objeto de referencia.
+No inventes piezas internas que no puedan identificarse.
+Si una pieza no es visible, indícala como desconocida en lugar de inventarla.</pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-footer-nav pt-4"></div>
+        </section>
+
+        <!-- ==========================================
+             PESTAÑA 7: PARTE V — AUDITORÍA, MITOS Y FUENTES
+             ========================================== -->
+        <section id="tab-7" class="tab-panel tab-transition hidden space-y-6">
+            <!-- Sección 12: Lista de afirmaciones no verificadas -->
+            <div class="agency-card rounded-3xl p-5 sm:p-7 space-y-4">
+                <span class="agency-badge text-xs font-mono font-semibold px-3 py-1 rounded-full">PARTE V — QUÉ CONVIENE DESCARTAR O TRATAR CON DESCONFIANZA</span>
+                <h2 class="text-xl sm:text-2xl font-extrabold text-white">12. Lista de afirmaciones no verificadas como comandos</h2>
+                <p class="text-sm sm:text-base text-slate-300">
+                    No he encontrado respaldo oficial de OpenAI para afirmar que las siguientes expresiones sean comandos especiales de ChatGPT:
+                </p>
+
+                <div class="flex flex-wrap gap-2 pt-1">
+                    <span class="font-mono text-xs sm:text-sm bg-rose-950/50 border border-rose-500/40 text-rose-200 px-3 py-1.5 rounded-xl">ZP</span>
+                    <span class="font-mono text-xs sm:text-sm bg-rose-950/50 border border-rose-500/40 text-rose-200 px-3 py-1.5 rounded-xl">STE</span>
+                    <span class="font-mono text-xs sm:text-sm bg-rose-950/50 border border-rose-500/40 text-rose-200 px-3 py-1.5 rounded-xl">CON</span>
+                    <span class="font-mono text-xs sm:text-sm bg-rose-950/50 border border-rose-500/40 text-rose-200 px-3 py-1.5 rounded-xl">AUTO</span>
+                    <span class="font-mono text-xs sm:text-sm bg-rose-950/50 border border-rose-500/40 text-rose-200 px-3 py-1.5 rounded-xl">FAC</span>
+                    <span class="font-mono text-xs sm:text-sm bg-rose-950/50 border border-rose-500/40 text-rose-200 px-3 py-1.5 rounded-xl">IDEA 50</span>
+                    <span class="font-mono text-xs sm:text-sm bg-rose-950/50 border border-rose-500/40 text-rose-200 px-3 py-1.5 rounded-xl">Pro shot</span>
+                    <span class="font-mono text-xs sm:text-sm bg-rose-950/50 border border-rose-500/40 text-rose-200 px-3 py-1.5 rounded-xl">HD real</span>
+                    <span class="font-mono text-xs sm:text-sm bg-rose-950/50 border border-rose-500/40 text-rose-200 px-3 py-1.5 rounded-xl">repair HD</span>
+                    <span class="font-mono text-xs sm:text-sm bg-rose-950/50 border border-rose-500/40 text-rose-200 px-3 py-1.5 rounded-xl">/4K Acter</span>
+                    <span class="font-mono text-xs sm:text-sm bg-rose-950/50 border border-rose-500/40 text-rose-200 px-3 py-1.5 rounded-xl">/porto</span>
+                    <span class="font-mono text-xs sm:text-sm bg-rose-950/50 border border-rose-500/40 text-rose-200 px-3 py-1.5 rounded-xl">/ageless</span>
+                    <span class="font-mono text-xs sm:text-sm bg-rose-950/50 border border-rose-500/40 text-rose-200 px-3 py-1.5 rounded-xl">VG Person remove</span>
+                    <span class="font-mono text-xs sm:text-sm bg-rose-950/50 border border-rose-500/40 text-rose-200 px-3 py-1.5 rounded-xl">New VG</span>
+                    <span class="font-mono text-xs sm:text-sm bg-rose-950/50 border border-rose-500/40 text-rose-200 px-3 py-1.5 rounded-xl">Passporto</span>
+                    <span class="font-mono text-xs sm:text-sm bg-rose-950/50 border border-rose-500/40 text-rose-200 px-3 py-1.5 rounded-xl">Higyle</span>
+                    <span class="font-mono text-xs sm:text-sm bg-rose-950/50 border border-rose-500/40 text-rose-200 px-3 py-1.5 rounded-xl">imagencipe</span>
+                    <span class="font-mono text-xs sm:text-sm bg-rose-950/50 border border-rose-500/40 text-rose-200 px-3 py-1.5 rounded-xl">ad paranormal</span>
+                </div>
+
+                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                    Esto no significa que no puedan producir resultados útiles: significa que <strong class="text-white">no hay base para presentarlos como funciones ocultas, comandos oficiales o activadores garantizados</strong>. Tampoco debe confundirse un prompt compartido por un usuario con una función integrada en ChatGPT.
+                </p>
+            </div>
+
+            <!-- Sección 13: Cómo comprobar un supuesto nuevo código -->
+            <div class="agency-card rounded-3xl p-5 sm:p-7 space-y-4">
+                <h3 class="text-lg sm:text-xl font-bold text-white">13. Cómo comprobar un supuesto nuevo código</h3>
+                <ol class="space-y-2.5 text-xs sm:text-sm text-slate-200">
+                    <li class="flex items-start gap-3 bg-slate-900/70 p-3 rounded-xl border border-slate-800"><span class="font-mono font-bold text-cyan-400">01.</span><span>Escribir la palabra sin barra y probar el resultado.</span></li>
+                    <li class="flex items-start gap-3 bg-slate-900/70 p-3 rounded-xl border border-slate-800"><span class="font-mono font-bold text-cyan-400">02.</span><span>Repetir la misma petición con <span class="code-pill">/</span> delante.</span></li>
+                    <li class="flex items-start gap-3 bg-slate-900/70 p-3 rounded-xl border border-slate-800"><span class="font-mono font-bold text-cyan-400">03.</span><span>Comparar los resultados manteniendo el resto del texto idéntico.</span></li>
+                    <li class="flex items-start gap-3 bg-slate-900/70 p-3 rounded-xl border border-slate-800"><span class="font-mono font-bold text-cyan-400">04.</span><span>Probar la palabra dentro de una instrucción descriptiva completa.</span></li>
+                    <li class="flex items-start gap-3 bg-slate-900/70 p-3 rounded-xl border border-slate-800"><span class="font-mono font-bold text-cyan-400">05.</span><span>Comprobar si aparece en la documentación oficial o en el menú de comandos de la aplicación.</span></li>
+                </ol>
+                <p class="text-xs sm:text-sm text-cyan-200 bg-cyan-950/30 border border-cyan-500/30 p-3.5 rounded-xl">
+                    Si los resultados son equivalentes con y sin barra, no hay motivo para considerar que la barra activa una función especial.
+                </p>
+            </div>
+
+            <!-- Fuentes y Criterio de Verificación -->
+            <div class="agency-card rounded-3xl p-5 sm:p-7 space-y-4">
+                <h3 class="text-lg sm:text-xl font-bold text-white">FUENTES Y CRITERIO DE VERIFICACIÓN</h3>
+
+                <h4 class="text-sm font-mono uppercase text-cyan-400 font-bold">Fuentes oficiales de OpenAI</h4>
+                <div class="space-y-2.5 text-xs sm:text-sm">
+                    <div class="bg-slate-900/80 border border-slate-800 p-3.5 rounded-xl">
+                        <strong class="text-white block">1. OpenAI Academy — Crear imágenes con ChatGPT</strong>
+                        <a href="https://openai.com/es-ES/academy/image-generation/" target="_blank" rel="noopener noreferrer" class="text-cyan-400 font-mono text-xs break-all hover:underline">https://openai.com/es-ES/academy/image-generation/</a>
+                        <p class="text-slate-300 mt-1">Explica cómo redactar instrucciones visuales claras, describir composición, estilo, iluminación y restricciones, y mejorar imágenes mediante cambios iterativos.</p>
+                    </div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3.5 rounded-xl">
+                        <strong class="text-white block">2. OpenAI Developers — Image prompting</strong>
+                        <a href="https://developers.openai.com/api/docs/guides/image-prompting" target="_blank" rel="noopener noreferrer" class="text-cyan-400 font-mono text-xs break-all hover:underline">https://developers.openai.com/api/docs/guides/image-prompting</a>
+                        <p class="text-slate-300 mt-1">Guía técnica de prompting para generación y edición de imágenes. Incluye composición, perspectivas, texto, referencias visuales, preservación de identidad y edición localizada.</p>
+                    </div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3.5 rounded-xl">
+                        <strong class="text-white block">3. ChatGPT Learn — Slash commands</strong>
+                        <a href="https://learn.chatgpt.com/docs/reference/slash-commands" target="_blank" rel="noopener noreferrer" class="text-cyan-400 font-mono text-xs break-all hover:underline">https://learn.chatgpt.com/docs/reference/slash-commands</a>
+                        <p class="text-slate-300 mt-1">Referencia de los comandos de barra disponibles en la aplicación de escritorio y de su disponibilidad contextual.</p>
+                    </div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3.5 rounded-xl">
+                        <strong class="text-white block">4. ChatGPT Learn — Commands and keyboard shortcuts</strong>
+                        <a href="https://learn.chatgpt.com/docs/reference/commands" target="_blank" rel="noopener noreferrer" class="text-cyan-400 font-mono text-xs break-all hover:underline">https://learn.chatgpt.com/docs/reference/commands</a>
+                        <p class="text-slate-300 mt-1">Referencia de comandos y atajos de teclado para la aplicación de escritorio, con tablas específicas para Windows y macOS.</p>
+                    </div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3.5 rounded-xl">
+                        <strong class="text-white block">5. OpenAI Help Center — Images in ChatGPT</strong>
+                        <a href="https://help.openai.com/en/articles/11084440-images-in-chatgpt" target="_blank" rel="noopener noreferrer" class="text-cyan-400 font-mono text-xs break-all hover:underline">https://help.openai.com/en/articles/11084440-images-in-chatgpt</a>
+                        <p class="text-slate-300 mt-1">Explica cómo generar y editar imágenes, subir una imagen de referencia, seleccionar zonas y solicitar cambios mediante lenguaje natural.</p>
+                    </div>
+                </div>
+
+                <h4 class="text-sm font-mono uppercase text-indigo-400 font-bold pt-2">Foros y comunidades técnicas</h4>
+                <div class="space-y-2.5 text-xs sm:text-sm">
+                    <div class="bg-slate-900/80 border border-slate-800 p-3.5 rounded-xl">
+                        <strong class="text-white block">6. OpenAI Developer Community — DALL·E 3 and GPT Image prompting tips and tricks</strong>
+                        <a href="https://community.openai.com/t/dalle3-and-gpt-image-1-prompt-tips-and-tricks-thread/498040" target="_blank" rel="noopener noreferrer" class="text-indigo-400 font-mono text-xs break-all hover:underline">https://community.openai.com/t/dalle3-and-gpt-image-1-prompt-tips-and-tricks-thread/498040</a>
+                        <p class="text-slate-300 mt-1">Conversación comunitaria sobre especificidad, composición, iluminación, estilo y refinamiento iterativo. Es experiencia de usuarios, no documentación normativa.</p>
+                    </div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3.5 rounded-xl">
+                        <strong class="text-white block">7. OpenAI Developer Community — Collection of DALL·E 3 prompting tips, issues and bugs</strong>
+                        <a href="https://community.openai.com/t/collection-of-dall-e-3-prompting-tips-issues-and-bugs-check-first-post/889278" target="_blank" rel="noopener noreferrer" class="text-indigo-400 font-mono text-xs break-all hover:underline">https://community.openai.com/t/collection-of-dall-e-3-prompting-tips-issues-and-bugs-check-first-post/889278</a>
+                        <p class="text-slate-300 mt-1">Recopilación de experiencias y problemas de prompting. Sus recomendaciones deben tratarse como observaciones de usuarios y no como reglas universales.</p>
+                    </div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-3.5 rounded-xl">
+                        <strong class="text-white block">8. Reddit — r/PromptEngineering: Mythbusting ChatGPT “Secret Slash Commands”</strong>
+                        <a href="https://www.reddit.com/r/PromptEngineering/comments/1vzv1d1/mythbusting_chatgpt_secret_slash_commands_free/" target="_blank" rel="noopener noreferrer" class="text-indigo-400 font-mono text-xs break-all hover:underline">https://www.reddit.com/r/PromptEngineering/comments/1vzv1d1/mythbusting_chatgpt_secret_slash_commands_free/</a>
+                        <p class="text-slate-300 mt-1">Publicación comunitaria de agosto de 2026 que compara palabras clave visuales con y sin barra y propone un amplio repertorio de términos técnicos. Es una prueba anecdótica, no un experimento controlado ni una fuente oficial.</p>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 space-y-2 text-xs sm:text-sm">
+                    <h4 class="font-bold text-white">Cómo se ha ponderado la evidencia</h4>
+                    <ul class="space-y-1 text-slate-300">
+                        <li>• <strong class="text-cyan-300">Documentación oficial:</strong> determina qué comandos están documentados y cómo recomienda OpenAI escribir prompts.</li>
+                        <li>• <strong class="text-cyan-300">Foros de OpenAI:</strong> aportan experiencias prácticas, problemas y técnicas compartidas por usuarios; no convierten esas técnicas en funciones oficiales.</li>
+                        <li>• <strong class="text-cyan-300">Reddit:</strong> se utiliza como fuente de ideas y vocabulario, no como autoridad sobre el funcionamiento interno de ChatGPT.</li>
+                        <li>• <strong class="text-cyan-300">Términos no localizados en fuentes fiables:</strong> se conservan solo cuando tienen una interpretación descriptiva razonable; de lo contrario, se marcan como dudosos o se sustituyen.</li>
+                    </ul>
+                </div>
+
+                <!-- Conclusión Final del Documento -->
+                <div class="bg-gradient-to-br from-indigo-950/80 via-slate-900 to-cyan-950/60 border border-cyan-500/40 rounded-2xl p-5 space-y-3">
+                    <h4 class="text-base sm:text-lg font-extrabold text-white uppercase tracking-wide">CONCLUSIÓN</h4>
+                    <p class="text-xs sm:text-sm text-slate-200">La verdadera ventaja no está en memorizar cien palabras mágicas. Está en dominar tres habilidades:</p>
+                    <ol class="space-y-1.5 text-xs sm:text-sm text-cyan-100 font-medium">
+                        <li>1. <strong>Conocer los comandos reales de la aplicación</strong> y saber dónde están disponibles.</li>
+                        <li>2. <strong>Dominar el vocabulario visual y técnico</strong> para describir con precisión lo que se quiere obtener.</li>
+                        <li>3. <strong>Escribir instrucciones verificables</strong>, especificando qué debe cambiar, qué debe conservarse y cómo se evaluará el resultado.</li>
+                    </ol>
+                    <p class="text-sm sm:text-base font-bold text-emerald-300 pt-1">
+                        «Un buen prompt no es un conjuro: es una especificación clara.»
+                    </p>
+                </div>
+            </div>
+
+            <div class="tab-footer-nav pt-4"></div>
+        </section>
+
+        <!-- ==========================================
+             PESTAÑA 8: CRÉDITOS (RUBÉN SBARSKY)
+             ========================================== -->
+        <section id="tab-8" class="tab-panel tab-transition hidden space-y-6">
+            <div class="agency-card rounded-3xl p-6 sm:p-9 text-center relative overflow-hidden">
+                <span class="agency-badge text-xs font-mono font-semibold px-3.5 py-1 rounded-full">REGISTRO DE AUTORÍA Y EDICIÓN</span>
+                
+                <h2 class="mt-3 text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+                    CRÉDITOS DEL PROYECTO
+                </h2>
+                <p class="text-xs sm:text-sm text-slate-400 mt-1">
+                    Arquitectura Interactiva & Edición Agencia Digital Premium
+                </p>
+
+                <!-- Contenedor donde se inyecta el mismo SVG hiper-animado #2 -->
+                <div id="svg-mount-creditos" class="my-5"></div>
+
+                <!-- Tarjeta de Datos Oficiales Solicitados -->
+                <div class="max-w-md mx-auto bg-slate-950/90 border border-indigo-500/40 rounded-2xl p-5 space-y-4 shadow-2xl">
+                    <div class="border-b border-slate-800 pb-3">
+                        <span class="text-[11px] font-mono uppercase tracking-widest text-cyan-400 block">Autor / Creador</span>
+                        <p class="text-xl sm:text-2xl font-extrabold text-white mt-0.5">Rubén Sbarsky</p>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-3">
+                            <span class="text-[10px] font-mono uppercase tracking-wider text-indigo-400 block">Fecha</span>
+                            <span class="font-mono text-sm sm:text-base font-bold text-emerald-300">04/11/2026</span>
+                        </div>
+                        <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-3">
+                            <span class="text-[10px] font-mono uppercase tracking-wider text-indigo-400 block">Hora</span>
+                            <span class="font-mono text-sm sm:text-base font-bold text-cyan-300">14:39:11</span>
+                        </div>
+                    </div>
+
+                    <div class="text-[11px] font-mono text-slate-400 pt-1">
+                        Optimizado para Samsung Galaxy A02s (6.5" HD+ Touch Viewport)
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-footer-nav pt-4"></div>
+        </section>
+
+    </main>
+
+    <!-- =====================================================
+         BOTONES FLOTANTES ARRASTRABLES (MOVIBLES CON EL DEDO)
+         ===================================================== -->
+
+    <!-- Botón Flotante 1: Ir siempre a INICIO -->
+    <button id="fab-inicio" style="right: 14px; bottom: 148px;" class="draggable-fab flex items-center gap-1.5 px-3.5 py-3 rounded-2xl bg-gradient-to-r from-indigo-600 to-cyan-600 text-white font-bold text-xs shadow-[0_8px_25px_rgba(6,182,212,0.45)] border border-cyan-300/40" aria-label="Botón flotante arrastrable para ir a Inicio">
+        <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2.3" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+        </svg>
+        <span>INICIO</span>
+    </button>
+
+    <!-- Botón Flotante 2: Ir ARRIBA de la pestaña actual -->
+    <button id="fab-arriba" style="right: 14px; bottom: 88px;" class="draggable-fab flex items-center gap-1.5 px-3.5 py-3 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-bold text-xs shadow-[0_8px_25px_rgba(16,185,129,0.45)] border border-emerald-300/40" aria-label="Botón flotante arrastrable para subir al comienzo de la pestaña">
+        <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+        <span>ARRIBA</span>
+    </button>
+
+    <!-- Notificación Toast para Copiado / Interacción -->
+    <div id="toast-msg" class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 bg-emerald-600 text-white text-xs font-mono font-bold px-4 py-2.5 rounded-xl shadow-xl opacity-0 pointer-events-none transition-opacity duration-200">
+        ¡Texto copiado al portapapeles!
+    </div>
+
+    <script>
+        // Definición estructurada de las 9 pestañas del documento
+        const TABS_DATA = [
+            { id: 0, short: "1. INICIO", full: "1. Inicio y Conclusión General", badge: "Intro" },
+            { id: 1, short: "2. COMANDOS /", full: "2. Comandos Reales (/) y Atajos", badge: "Parte I" },
+            { id: 2, short: "3. RETOQUE", full: "3. Palabras Clave de Imagen y Retoque", badge: "Parte II" },
+            { id: 3, short: "4. CÁMARA", full: "4. Perspectivas, Cámara y Fotomontaje", badge: "Parte II" },
+            { id: 4, short: "5. DIAGRAMAS", full: "5. Diagramas Técnicos y Editorial", badge: "Parte II" },
+            { id: 5, short: "6. ETIQUETAS", full: "6. Abreviaturas y Etiquetas de Texto", badge: "Parte III" },
+            { id: 6, short: "7. FÓRMULA", full: "7. Vocabulario Pro y Fórmula de Prompts", badge: "Parte IV" },
+            { id: 7, short: "8. AUDITORÍA", full: "8. Mitos Descartados y Fuentes Oficiales", badge: "Parte V" },
+            { id: 8, short: "9. CRÉDITOS", full: "9. Créditos Oficiales del Proyecto", badge: "Autor" }
+        ];
+
+        let currentTabIndex = 0;
+
+        // Clonar e inyectar el mismo SVG hiper-animado en INICIO y en CRÉDITOS
+        function mountIdenticalSVGs() {
+            const template = document.getElementById('hyper-svg-template');
+            const mountInicio = document.getElementById('svg-mount-inicio');
+            const mountCreditos = document.getElementById('svg-mount-creditos');
+
+            if (template && mountInicio && mountCreditos) {
+                mountInicio.appendChild(template.content.cloneNode(true));
+                mountCreditos.appendChild(template.content.cloneNode(true));
+            }
+        }
+
+        // Construir la barra horizontal de pestañas, el menú sándwich y los botones fijos al final de cada pestaña
+        function renderNavigationElements() {
+            const topBar = document.getElementById('top-tabs-bar');
+            const drawerContainer = document.getElementById('drawer-links-container');
+            topBar.innerHTML = '';
+            drawerContainer.innerHTML = '';
+
+            TABS_DATA.forEach((tab, idx) => {
+                const isActive = idx === currentTabIndex;
+
+                // Píldora en la barra superior
+                const pillBtn = document.createElement('button');
+                pillBtn.id = `top-pill-${idx}`;
+                pillBtn.onclick = () => switchTab(idx);
+                pillBtn.className = isActive
+                    ? 'px-3.5 py-2 rounded-xl font-bold text-xs bg-gradient-to-r from-indigo-600 to-cyan-600 text-white shadow-md shadow-indigo-950/60 transition'
+                    : 'px-3.5 py-2 rounded-xl font-medium text-xs bg-slate-900/90 text-slate-400 hover:text-white border border-slate-800 transition';
+                pillBtn.textContent = tab.short;
+                topBar.appendChild(pillBtn);
+
+                // Elemento en el Índice Menú Sándwich
+                const drawerItem = document.createElement('button');
+                drawerItem.onclick = () => {
+                    switchTab(idx);
+                    toggleDrawer(false);
+                };
+                drawerItem.className = isActive
+                    ? 'w-full text-left p-3.5 rounded-2xl bg-indigo-600/25 border border-cyan-400/50 flex items-center justify-between gap-2 transition'
+                    : 'w-full text-left p-3.5 rounded-2xl bg-slate-900/60 hover:bg-slate-900 border border-slate-800/80 flex items-center justify-between gap-2 transition';
+                drawerItem.innerHTML = `
+                    <div class="overflow-hidden">
+                        <span class="text-[10px] font-mono uppercase tracking-wider ${isActive ? 'text-cyan-300' : 'text-slate-400'} block">${tab.badge}</span>
+                        <span class="text-xs sm:text-sm font-bold ${isActive ? 'text-white' : 'text-slate-200'} block truncate">${tab.full}</span>
+                    </div>
+                    <span class="w-6 h-6 rounded-lg ${isActive ? 'bg-cyan-500 text-slate-950' : 'bg-slate-800 text-slate-400'} font-mono text-xs font-bold flex items-center justify-center shrink-0">
+                        ${idx + 1}
+                    </span>
+                `;
+                drawerContainer.appendChild(drawerItem);
+            });
+
+            // Construir barra fija de botones Anterior / Siguiente al final de cada pestaña
+            TABS_DATA.forEach((tab, idx) => {
+                const sectionEl = document.getElementById(`tab-${idx}`);
+                if (!sectionEl) return;
+                const footerContainer = sectionEl.querySelector('.tab-footer-nav');
+                if (!footerContainer) return;
+
+                const hasPrev = idx > 0;
+                const hasNext = idx < TABS_DATA.length - 1;
+
+                footerContainer.innerHTML = `
+                    <div class="agency-card rounded-2xl p-3.5 sm:p-4 border border-indigo-500/30 flex items-center justify-between gap-3">
+                        ${hasPrev ? `
+                            <button onclick="switchTab(${idx - 1})" class="flex-1 py-3 px-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 active:scale-95 border border-slate-700 text-left transition flex items-center gap-2">
+                                <svg class="w-4 h-4 text-cyan-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg>
+                                <div class="overflow-hidden">
+                                    <span class="text-[10px] font-mono uppercase text-slate-400 block">Anterior</span>
+                                    <span class="text-xs sm:text-sm font-bold text-white truncate block">${TABS_DATA[idx - 1].short}</span>
+                                </div>
+                            </button>
+                        ` : `
+                            <div class="flex-1 py-3 px-3.5 rounded-xl bg-slate-950/40 border border-slate-900 text-slate-600 text-xs font-mono text-center">
+                                Primera pestaña
+                            </div>
+                        `}
+
+                        ${hasNext ? `
+                            <button onclick="switchTab(${idx + 1})" class="flex-1 py-3 px-3.5 rounded-xl bg-gradient-to-r from-indigo-600 to-cyan-600 hover:from-indigo-500 hover:to-cyan-500 active:scale-95 text-right transition flex items-center justify-end gap-2 shadow-lg shadow-indigo-950/60">
+                                <div class="overflow-hidden">
+                                    <span class="text-[10px] font-mono uppercase text-cyan-100 block">Siguiente</span>
+                                    <span class="text-xs sm:text-sm font-bold text-white truncate block">${TABS_DATA[idx + 1].short}</span>
+                                </div>
+                                <svg class="w-4 h-4 text-white shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+                            </button>
+                        ` : `
+                            <button onclick="switchTab(0)" class="flex-1 py-3 px-3.5 rounded-xl bg-emerald-600/25 hover:bg-emerald-600/35 border border-emerald-400/40 text-right transition flex items-center justify-end gap-2">
+                                <div class="overflow-hidden">
+                                    <span class="text-[10px] font-mono uppercase text-emerald-300 block">Finalizado</span>
+                                    <span class="text-xs sm:text-sm font-bold text-white truncate block">Volver a INICIO</span>
+                                </div>
+                            </button>
+                        `}
+                    </div>
+                `;
+            });
+        }
+
+        // Cambiar de pestaña y llevar al comienzo de la misma
+        function switchTab(targetIndex) {
+            if (targetIndex < 0 || targetIndex >= TABS_DATA.length) return;
+            currentTabIndex = targetIndex;
+
+            TABS_DATA.forEach((tab, idx) => {
+                const panel = document.getElementById(`tab-${idx}`);
+                if (panel) {
+                    if (idx === currentTabIndex) {
+                        panel.classList.remove('hidden');
+                    } else {
+                        panel.classList.add('hidden');
+                    }
+                }
+            });
+
+            // Actualizar cabecera y contadores
+            document.getElementById('header-active-title').textContent = TABS_DATA[currentTabIndex].short;
+            document.getElementById('tab-counter-badge').textContent = `${currentTabIndex + 1}/${TABS_DATA.length}`;
+
+            renderNavigationElements();
+
+            // Centrar la píldora activa en la barra horizontal superior
+            const activePill = document.getElementById(`top-pill-${currentTabIndex}`);
+            if (activePill) {
+                activePill.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+            }
+
+            // Subir al inicio de la pestaña actual
+            scrollToCurrentTabTop();
+        }
+
+        // Subir suavemente al comienzo de la pestaña actual (funciona en todas las pestañas)
+        function scrollToCurrentTabTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
+        }
+
+        // Abrir / Cerrar el menú sándwich (Índice)
+        function toggleDrawer(open) {
+            const backdrop = document.getElementById('drawer-backdrop');
+            const panel = document.getElementById('drawer-panel');
+            if (open) {
+                backdrop.classList.remove('hidden');
+                setTimeout(() => backdrop.classList.remove('opacity-0'), 10);
+                panel.classList.remove('-translate-x-full');
+            } else {
+                backdrop.classList.add('opacity-0');
+                panel.classList.add('-translate-x-full');
+                setTimeout(() => backdrop.classList.add('hidden'), 220);
+            }
+        }
+
+        // Filtro interactivo para la tabla de 25 comandos con barra (/)
+        function filterSlashCommands(query) {
+            const normalized = query.trim().toLowerCase();
+            const rows = document.querySelectorAll('#slash-commands-tbody tr');
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                row.style.display = text.includes(normalized) ? '' : 'none';
+            });
+        }
+
+        // Copiar bloques de prompts al portapapeles compatible con móviles
+        function copyPromptBlock(elementId) {
+            const el = document.getElementById(elementId);
+            if (!el) return;
+            const textArea = document.createElement('textarea');
+            textArea.value = el.innerText;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+
+            const toast = document.getElementById('toast-msg');
+            toast.classList.remove('opacity-0');
+            setTimeout(() => toast.classList.add('opacity-0'), 2000);
+        }
+
+        // Lógica de Botones Flotantes Arrastrables (Soporte Táctil Samsung A02s + Mouse)
+        function makeButtonDraggable(buttonEl, onClickCallback) {
+            let isDragging = false;
+            let hasMoved = false;
+            let startX = 0;
+            let startY = 0;
+            let initialLeft = 0;
+            let initialTop = 0;
+
+            const onPointerDown = (e) => {
+                isDragging = true;
+                hasMoved = false;
+                const rect = buttonEl.getBoundingClientRect();
+                initialLeft = rect.left;
+                initialTop = rect.top;
+
+                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+                const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+                startX = clientX;
+                startY = clientY;
+
+                // Fijar coordenadas explícitas left/top para permitir movimiento libre
+                buttonEl.style.left = `${initialLeft}px`;
+                buttonEl.style.top = `${initialTop}px`;
+                buttonEl.style.right = 'auto';
+                buttonEl.style.bottom = 'auto';
+            };
+
+            const onPointerMove = (e) => {
+                if (!isDragging) return;
+                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+                const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+
+                const deltaX = clientX - startX;
+                const deltaY = clientY - startY;
+
+                // Umbral de 6px para distinguir entre toque (tap) y arrastre (drag) en pantalla móvil
+                if (Math.abs(deltaX) > 6 || Math.abs(deltaY) > 6) {
+                    hasMoved = true;
+                }
+
+                if (hasMoved) {
+                    if (e.cancelable) e.preventDefault();
+                    const btnWidth = buttonEl.offsetWidth;
+                    const btnHeight = buttonEl.offsetHeight;
+                    const maxX = window.innerWidth - btnWidth - 6;
+                    const maxY = window.innerHeight - btnHeight - 6;
+
+                    const clampedX = Math.max(6, Math.min(initialLeft + deltaX, maxX));
+                    const clampedY = Math.max(6, Math.min(initialTop + deltaY, maxY));
+
+                    buttonEl.style.left = `${clampedX}px`;
+                    buttonEl.style.top = `${clampedY}px`;
+                }
+            };
+
+            const onPointerUp = () => {
+                if (!isDragging) return;
+                isDragging = false;
+                if (!hasMoved) {
+                    onClickCallback();
+                }
+            };
+
+            // Eventos Touch (Android / Samsung A02s)
+            buttonEl.addEventListener('touchstart', onPointerDown, { passive: true });
+            window.addEventListener('touchmove', onPointerMove, { passive: false });
+            window.addEventListener('touchend', onPointerUp);
+
+            // Eventos Mouse (Escritorio)
+            buttonEl.addEventListener('mousedown', onPointerDown);
+            window.addEventListener('mousemove', onPointerMove);
+            window.addEventListener('mouseup', onPointerUp);
+        }
+
+        // Inicialización al cargar la página
+        window.onload = function () {
+            mountIdenticalSVGs();
+            renderNavigationElements();
+
+            // Configurar botón flotante arrastrable INICIO
+            const fabInicio = document.getElementById('fab-inicio');
+            makeButtonDraggable(fabInicio, () => {
+                switchTab(0);
+            });
+
+            // Configurar botón flotante arrastrable ARRIBA
+            const fabArriba = document.getElementById('fab-arriba');
+            makeButtonDraggable(fabArriba, () => {
+                scrollToCurrentTabTop();
+            });
+        };
+    </script>
+</body>
+</html>
